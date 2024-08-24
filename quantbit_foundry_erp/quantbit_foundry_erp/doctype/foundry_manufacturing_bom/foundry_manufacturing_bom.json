@@ -1,0 +1,212 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-08-22 18:12:23.592254",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_c9gx",
+  "amended_from",
+  "naming_series",
+  "column_break_ls7t",
+  "company",
+  "column_break_mker",
+  "posting_date",
+  "finished_item_details_section",
+  "item_group",
+  "section_break_s56c",
+  "item_code",
+  "uom",
+  "column_break_wusc",
+  "item_name",
+  "total_weight",
+  "column_break_grdw",
+  "qty",
+  "weight_per_unit",
+  "core_type_section",
+  "core_id",
+  "column_break_9ai0",
+  "core_name",
+  "raw_material_details_section",
+  "raw_items",
+  "remark_section",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_c9gx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Foundry Manufacturing BOM",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series"
+  },
+  {
+   "fieldname": "column_break_ls7t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mker",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "finished_item_details_section",
+   "fieldtype": "Section Break",
+   "label": "Finished Item Details"
+  },
+  {
+   "fieldname": "raw_material_details_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Material Details"
+  },
+  {
+   "fieldname": "raw_items",
+   "fieldtype": "Table",
+   "label": "Raw Material BOM Details",
+   "options": "Raw Material BOM Details"
+  },
+  {
+   "fieldname": "core_type_section",
+   "fieldtype": "Section Break",
+   "label": "Core Type Details"
+  },
+  {
+   "fieldname": "core_id",
+   "fieldtype": "Link",
+   "label": "Core Id",
+   "options": "Core Type"
+  },
+  {
+   "fieldname": "column_break_9ai0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "core_id.core_type",
+   "fieldname": "core_name",
+   "fieldtype": "Data",
+   "label": "Core Name"
+  },
+  {
+   "fieldname": "remark_section",
+   "fieldtype": "Section Break",
+   "label": "Remark If Any"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Text Editor",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Finished Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Finished Item Name"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "Qty",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wusc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "Uom",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "weight_per_unit",
+   "fieldtype": "Float",
+   "label": "Weight Per Unit",
+   "precision": "3"
+  },
+  {
+   "fieldname": "total_weight",
+   "fieldtype": "Float",
+   "label": "Total Weight",
+   "precision": "3"
+  },
+  {
+   "fieldname": "column_break_grdw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Finished Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "section_break_s56c",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-24 12:31:38.250603",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Foundry Manufacturing BOM",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
