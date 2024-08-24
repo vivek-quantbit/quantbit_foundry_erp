@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-22 18:49:03.403878",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "column_break_hp9f",
+  "item_name",
+  "column_break_gtes",
+  "uom",
+  "section_break_gw3v",
+  "source_warehouse",
+  "available_qty",
+  "column_break_n5ax",
+  "standard_qty",
+  "used_qty",
+  "column_break_xeun",
+  "percentage_of_input",
+  "check"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_hp9f",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "column_break_gtes",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Uom",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "section_break_gw3v",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "available_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Available Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_n5ax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "standard_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Standard Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "used_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Used Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_xeun",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "percentage_of_input",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Percentage Of Input",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "check",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Check"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-24 12:31:40.409900",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Raw Material Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

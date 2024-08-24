@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-08-22 18:32:09.555876",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_nylh",
+  "amended_from",
+  "naming_series",
+  "column_break_ppok",
+  "posting_date",
+  "column_break_uxvu",
+  "company",
+  "section_break_ydaq",
+  "employee_details_section",
+  "supervisor_id",
+  "operator_id",
+  "column_break_m2fx",
+  "supervisor_name",
+  "operator_name",
+  "column_break_r5ba",
+  "shift",
+  "shift_time",
+  "section_break_j53d",
+  "machine_details_section",
+  "machine_code",
+  "machine_name",
+  "column_break_xvrp",
+  "core_id",
+  "core_name",
+  "warehouse_details_section",
+  "source_warehouse",
+  "column_break_k60h",
+  "target_warehouse",
+  "finished_item_details_section",
+  "item_group",
+  "section_break_q2w0",
+  "bom_reference",
+  "finished_items",
+  "raw_material_details_section",
+  "raw_items",
+  "electricity_reading_details_section",
+  "electric_reading",
+  "additional_cost_details_section",
+  "additional_cost",
+  "remark_section",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_nylh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Foundry Manufacturing",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series"
+  },
+  {
+   "fieldname": "column_break_ppok",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_uxvu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ydaq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Link",
+   "label": "Supervisor Id",
+   "options": "Supervisor Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "operator_id",
+   "fieldtype": "Link",
+   "label": "Operator Id",
+   "options": "Operator Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_m2fx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "supervisor_id.supervisor_name",
+   "fieldname": "supervisor_name",
+   "fieldtype": "Data",
+   "label": "Supervisor Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "operator_id.operator_name",
+   "fieldname": "operator_name",
+   "fieldtype": "Data",
+   "label": "Operator Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_r5ba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Data",
+   "label": "Shift"
+  },
+  {
+   "fieldname": "shift_time",
+   "fieldtype": "Data",
+   "label": "Shift Time"
+  },
+  {
+   "fieldname": "section_break_j53d",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "machine_details_section",
+   "fieldtype": "Section Break",
+   "label": "Machine Details"
+  },
+  {
+   "fieldname": "machine_code",
+   "fieldtype": "Data",
+   "label": "Machine Code"
+  },
+  {
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name"
+  },
+  {
+   "fieldname": "column_break_xvrp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "core_id",
+   "fieldtype": "Link",
+   "label": "Core Id",
+   "options": "Core Type"
+  },
+  {
+   "fetch_from": "core_id.core_type",
+   "fieldname": "core_name",
+   "fieldtype": "Data",
+   "label": "Core Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "warehouse_details_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouse Details"
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_k60h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "finished_item_details_section",
+   "fieldtype": "Section Break",
+   "label": "Finished Item Details"
+  },
+  {
+   "fieldname": "bom_reference",
+   "fieldtype": "Link",
+   "label": "Foundry Manufacturing BOM",
+   "options": "Foundry Manufacturing BOM"
+  },
+  {
+   "fieldname": "finished_items",
+   "fieldtype": "Table",
+   "label": "Finished Item Details",
+   "options": "Finished Item Details"
+  },
+  {
+   "fieldname": "raw_material_details_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Material Details"
+  },
+  {
+   "fieldname": "raw_items",
+   "fieldtype": "Table",
+   "label": "Raw Material Details",
+   "options": "Raw Material Details"
+  },
+  {
+   "fieldname": "electricity_reading_details_section",
+   "fieldtype": "Section Break",
+   "label": "Electricity Reading Details"
+  },
+  {
+   "fieldname": "electric_reading",
+   "fieldtype": "Table",
+   "label": "Electricity Reading Details",
+   "options": "Electricity Reading Details"
+  },
+  {
+   "fieldname": "additional_cost_details_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Cost Details"
+  },
+  {
+   "fieldname": "additional_cost",
+   "fieldtype": "Table",
+   "label": "Additional Cost",
+   "options": "Additional Cost"
+  },
+  {
+   "fieldname": "remark_section",
+   "fieldtype": "Section Break",
+   "label": "Remark If Any"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Text Editor",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Finished Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "section_break_q2w0",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "custom_foundry_manufacturing"
+  }
+ ],
+ "modified": "2024-08-24 12:31:37.825696",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Foundry Manufacturing",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

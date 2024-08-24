@@ -1,16 +1,23 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:grade_type",
- "creation": "2024-08-08 14:58:35.973090",
+ "autoname": "naming_series:",
+ "creation": "2024-08-23 17:36:51.293660",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "company",
-  "section_break_wbasg",
-  "grade_type"
+  "section_break_gccj",
+  "core_type"
  ],
  "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CT-"
+  },
   {
    "fieldname": "company",
    "fieldtype": "Link",
@@ -18,23 +25,21 @@
    "options": "Company"
   },
   {
-   "fieldname": "section_break_wbasg",
+   "fieldname": "section_break_gccj",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "grade_type",
+   "fieldname": "core_type",
    "fieldtype": "Data",
-   "label": "Grade Type",
-   "unique": 1
+   "label": "Core Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-24 12:31:41.424414",
+ "modified": "2024-08-24 12:31:39.244556",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Grade Type",
- "naming_rule": "By fieldname",
+ "name": "Core Type",
  "owner": "Administrator",
  "permissions": [
   {
@@ -52,5 +57,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
