@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class AdditionalCost(Document):
+class ManufacturingType(Document):
 	pass
