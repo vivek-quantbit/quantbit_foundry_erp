@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-08-27 15:16:33.009548",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_details_tab",
+  "amended_from",
+  "naming_series",
+  "section_break_yjtf",
+  "foundry_unit",
+  "company",
+  "column_break_wnfu",
+  "heat_date",
+  "column_break_qqdg",
+  "posting_time",
+  "column_break_ayfl",
+  "supervisor_id",
+  "supervisor_name",
+  "column_break_wndy",
+  "operator_id",
+  "operator_name",
+  "column_break_22yp",
+  "moulding_contractor",
+  "moulding_contractor_name",
+  "foundry_shift",
+  "foundry_shift_time",
+  "heat_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_yjtf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Pouring",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "general_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "General details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "POUR-"
+  },
+  {
+   "fieldname": "foundry_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Foundry Unit",
+   "options": "Foundry Unit",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "foundry_unit.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "heat_date",
+   "fieldtype": "Date",
+   "label": "Heat Date"
+  },
+  {
+   "default": "Now",
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Heat Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supervisor_id",
+   "fieldtype": "Data",
+   "label": "Supervisor ID"
+  },
+  {
+   "fieldname": "operator_id",
+   "fieldtype": "Data",
+   "label": "Operator ID"
+  },
+  {
+   "fieldname": "moulding_contractor",
+   "fieldtype": "Data",
+   "label": "Moulding Contractor"
+  },
+  {
+   "fieldname": "foundry_shift",
+   "fieldtype": "Data",
+   "label": "Foundry Shift"
+  },
+  {
+   "fieldname": "foundry_shift_time",
+   "fieldtype": "Data",
+   "label": "Foundry Shift Time"
+  },
+  {
+   "fieldname": "supervisor_name",
+   "fieldtype": "Data",
+   "label": "Supervisor Name"
+  },
+  {
+   "fieldname": "operator_name",
+   "fieldtype": "Data",
+   "label": "Operator Name"
+  },
+  {
+   "fieldname": "moulding_contractor_name",
+   "fieldtype": "Data",
+   "label": "Moulding Contractor Name"
+  },
+  {
+   "fieldname": "heat_number",
+   "fieldtype": "Data",
+   "label": "Heat Number"
+  },
+  {
+   "fieldname": "column_break_wnfu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qqdg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ayfl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wndy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_22yp",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-28 15:09:18.791998",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Pouring",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

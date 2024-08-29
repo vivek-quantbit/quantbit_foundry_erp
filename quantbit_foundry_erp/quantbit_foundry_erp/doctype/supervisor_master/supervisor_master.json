@@ -7,11 +7,11 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "column_break_pyo5",
-  "company",
   "section_break_hqz2",
+  "foundry_unit",
+  "company",
+  "column_break_pyo5",
   "supervisor",
-  "column_break_4dbi",
   "supervisor_name"
  ],
  "fields": [
@@ -26,10 +26,12 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "foundry_unit.company",
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company"
+   "options": "Company",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_hqz2",
@@ -38,24 +40,36 @@
   {
    "fieldname": "supervisor",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Supervisor",
-   "options": "Employee"
-  },
-  {
-   "fieldname": "column_break_4dbi",
-   "fieldtype": "Column Break"
+   "no_copy": 1,
+   "options": "Employee",
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fetch_from": "supervisor.employee_name",
    "fieldname": "supervisor_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Supervisor Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "foundry_unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Foundry Unit",
+   "options": "Foundry Unit",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-24 12:31:38.972997",
+ "modified": "2024-08-28 16:44:15.406952",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Supervisor Master",
@@ -75,7 +89,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
