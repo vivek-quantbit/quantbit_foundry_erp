@@ -2,22 +2,32 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2024-08-23 17:36:51.293660",
+ "creation": "2024-08-24 15:44:07.812993",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "column_break_w82a",
+  "column_break_yqy2",
   "company",
-  "section_break_gccj",
-  "core_type"
+  "section_break_innn",
+  "machine_type",
+  "column_break_rpga",
+  "machine_name",
+  "column_break_lmap",
+  "core_type",
+  "column_break_sfce",
+  "core_name"
  ],
  "fields": [
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Series",
-   "options": "CT-"
+   "options": "FMM-"
+  },
+  {
+   "fieldname": "column_break_yqy2",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "company",
@@ -28,27 +38,55 @@
    "reqd": 1
   },
   {
-   "fieldname": "section_break_gccj",
+   "fieldname": "section_break_innn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Machine Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rpga",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name"
+  },
+  {
+   "fieldname": "column_break_lmap",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "core_type",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Core Type",
+   "options": "Core Type",
    "reqd": 1
   },
   {
-   "fieldname": "column_break_w82a",
+   "fieldname": "column_break_sfce",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "core_type.core_type",
+   "fieldname": "core_name",
+   "fieldtype": "Data",
+   "label": "Core Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 11:01:24.744464",
+ "modified": "2024-08-28 11:01:24.419965",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Core Type",
+ "name": "Foundry Manufacturing Machine",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

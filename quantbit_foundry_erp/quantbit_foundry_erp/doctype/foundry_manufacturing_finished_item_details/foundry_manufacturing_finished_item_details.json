@@ -1,33 +1,41 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-08-22 18:43:13.484528",
+ "creation": "2024-08-24 15:57:37.858722",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "bom_reference",
   "item_code",
   "item_name",
   "target_warehouse",
   "column_break_u7oz",
-  "total_qty",
   "ok_qty",
-  "rejected_qty"
+  "rejected_qty",
+  "total_qty",
+  "column_break_bl1b",
+  "qty"
  ],
  "fields": [
   {
+   "columns": 2,
+   "fetch_from": "bom_reference.item_code",
    "fieldname": "item_code",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Finished Item Code",
-   "options": "Item"
+   "options": "Item",
+   "read_only": 1
   },
   {
-   "fetch_from": "item_code.item_name",
+   "columns": 1,
+   "fetch_from": "bom_reference.item_name",
    "fieldname": "item_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Finished Item Name"
+   "label": "Finished Item Name",
+   "read_only": 1
   },
   {
    "fieldname": "target_warehouse",
@@ -41,34 +49,58 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 2,
    "fieldname": "total_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Total Qty",
-   "precision": "2"
+   "label": "Total Quantity",
+   "precision": "2",
+   "read_only": 1
   },
   {
+   "columns": 1,
    "fieldname": "ok_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Ok Qty",
+   "label": "Ok Quantity",
    "precision": "2"
   },
   {
+   "columns": 2,
    "fieldname": "rejected_qty",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "Rejected Qty",
+   "label": "Rejected Quantity",
    "precision": "2"
+  },
+  {
+   "columns": 2,
+   "fieldname": "bom_reference",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Foundry Manufacturing BOM",
+   "options": "Foundry Manufacturing BOM"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Qty to Manufacturing",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_bl1b",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-24 12:31:41.026482",
+ "modified": "2024-08-28 19:23:52.798697",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Finished Item Details",
+ "name": "Foundry Manufacturing Finished Item Details",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

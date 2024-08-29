@@ -1,55 +1,43 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
- "creation": "2024-08-23 17:36:51.293660",
+ "autoname": "field:manufacturing_type",
+ "creation": "2024-08-24 14:45:24.383349",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "naming_series",
-  "column_break_w82a",
   "company",
-  "section_break_gccj",
-  "core_type"
+  "column_break_axzx",
+  "manufacturing_type"
  ],
  "fields": [
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Series",
-   "options": "CT-"
-  },
-  {
    "fieldname": "company",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Company",
    "options": "Company",
    "reqd": 1
   },
   {
-   "fieldname": "section_break_gccj",
+   "fieldname": "column_break_axzx",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "core_type",
+   "fieldname": "manufacturing_type",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Core Type",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_w82a",
-   "fieldtype": "Column Break"
+   "label": "Manufacturing Type",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 11:01:24.744464",
+ "modified": "2024-08-28 11:01:25.196656",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Core Type",
- "naming_rule": "By \"Naming Series\" field",
+ "name": "Manufacturing Type",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -65,8 +53,9 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "track_changes": 1
+ "track_seen": 1
 }

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class FinishedItemDetails(Document):
+class FoundryManufacturingMachine(Document):
 	pass

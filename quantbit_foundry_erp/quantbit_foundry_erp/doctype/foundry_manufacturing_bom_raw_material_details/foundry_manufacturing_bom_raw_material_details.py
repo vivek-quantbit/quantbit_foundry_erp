@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class RawMaterialBOMDetails(Document):
+class FoundryManufacturingBOMRawMaterialDetails(Document):
 	pass

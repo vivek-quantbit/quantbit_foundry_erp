@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-24 18:15:18.427996",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "source_warehouse",
+  "item_code",
+  "column_break_wflp",
+  "item_name",
+  "percentage_input",
+  "column_break_vkx0",
+  "standard_qty",
+  "used_qty",
+  "column_break_yhay",
+  "uom",
+  "quantity",
+  "check"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_wflp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "percentage_input",
+   "fieldtype": "Float",
+   "label": "Percentage Input",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_vkx0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "standard_qty",
+   "fieldtype": "Float",
+   "label": "Standard Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "used_qty",
+   "fieldtype": "Float",
+   "label": "Used Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_yhay",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Standard Qty",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "check",
+   "fieldtype": "Check",
+   "label": "Check"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-28 11:01:22.437195",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Foundry Manufacturing Scrap Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

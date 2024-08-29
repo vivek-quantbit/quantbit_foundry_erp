@@ -1,12 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-08-22 19:02:01.483962",
+ "creation": "2024-08-24 16:19:54.863931",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "expense_head",
+  "expense_account",
   "column_break_1shp",
   "description",
   "column_break_fq6t",
@@ -14,17 +14,11 @@
  ],
  "fields": [
   {
-   "fieldname": "expense_head",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Expense Head",
-   "options": "Account"
-  },
-  {
    "fieldname": "column_break_1shp",
    "fieldtype": "Column Break"
   },
   {
+   "columns": 3,
    "fieldname": "description",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -35,20 +29,29 @@
    "fieldtype": "Column Break"
   },
   {
+   "columns": 2,
    "fieldname": "amount",
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Amount",
    "precision": "2"
+  },
+  {
+   "columns": 2,
+   "fieldname": "expense_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Expense Account",
+   "options": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-24 12:31:40.724359",
+ "modified": "2024-08-28 19:27:38.477108",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Additional Cost",
+ "name": "Foundry Manufacturing Additional Cost",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
