@@ -1,0 +1,449 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-08-30 17:43:31.000848",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "blanket_order_type",
+  "customer",
+  "customer_name",
+  "supplier_id",
+  "supplier_name",
+  "column_break_8",
+  "date",
+  "from_date",
+  "po_no",
+  "column_break_poz4k",
+  "naming_series",
+  "tax_category",
+  "section_break_lavyw",
+  "price_list",
+  "column_break_bujct",
+  "currency",
+  "section_break_12",
+  "items",
+  "section_break_p5s1o",
+  "total_qty",
+  "column_break_tozrs",
+  "total_amount",
+  "sales_taxes_and_charges_section",
+  "sales_template",
+  "purchase_template",
+  "taxes",
+  "purchase_taxes",
+  "terms_and_conditions_section",
+  "tc_name",
+  "terms",
+  "address_details_tab",
+  "party_name",
+  "address",
+  "supplier_gstin",
+  "address_display",
+  "gst_category",
+  "place_of_supply",
+  "column_break_tceuv",
+  "contact_display",
+  "contact_phone",
+  "contact_mobile",
+  "contact_email",
+  "shipping_address_section",
+  "shipping_address",
+  "shipping_address_display",
+  "billing_address",
+  "billing_address_display",
+  "billing_address_gstin",
+  "column_break_djewd",
+  "dispatch_address_name",
+  "dispatch_address",
+  "company_address_section",
+  "company_address",
+  "column_break_rafsp",
+  "company_address_display",
+  "company_gstin",
+  "amended_from",
+  "connection_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "blanket_order_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Order Type",
+   "options": "\nSelling\nPurchasing",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Selling\"",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Selling\"",
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Purchasing\"",
+   "fieldname": "supplier_id",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Purchasing\"",
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "supplier_name",
+   "fieldtype": "Data",
+   "label": "Supplier Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Selling\"",
+   "fieldname": "po_no",
+   "fieldtype": "Data",
+   "label": "Customer's Purchase Order"
+  },
+  {
+   "fieldname": "column_break_poz4k",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "OO-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_category",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Tax Category"
+  },
+  {
+   "fieldname": "section_break_lavyw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "column_break_bujct",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Item",
+   "options": "Open Order Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_p5s1o",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_tozrs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Float",
+   "label": "Total Amount",
+   "precision": "2"
+  },
+  {
+   "fieldname": "sales_taxes_and_charges_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Selling\"",
+   "fieldname": "sales_template",
+   "fieldtype": "Link",
+   "label": "Sales Taxes and Charges Template",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Purchasing\"",
+   "fieldname": "purchase_template",
+   "fieldtype": "Link",
+   "label": "Purchase Taxes and Charges Template",
+   "options": "Purchase Taxes and Charges Template"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Selling\"",
+   "fieldname": "taxes",
+   "fieldtype": "Table",
+   "label": "Taxes and Charges",
+   "options": "Open Order Sales Taxes and Charges"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Purchasing\"",
+   "fieldname": "purchase_taxes",
+   "fieldtype": "Table",
+   "label": "Taxes and Charges",
+   "options": "Open Order Purchase Taxes and Charges"
+  },
+  {
+   "fieldname": "terms_and_conditions_section",
+   "fieldtype": "Section Break",
+   "label": "Terms and Conditions"
+  },
+  {
+   "fieldname": "tc_name",
+   "fieldtype": "Link",
+   "label": "Terms",
+   "options": "Terms and Conditions"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions Details"
+  },
+  {
+   "fieldname": "address_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address & Contact"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "depends_on": "eval:doc.blanket_order_type == \"Purchasing\"",
+   "fieldname": "supplier_gstin",
+   "fieldtype": "Data",
+   "label": "Address GSTIN",
+   "read_only": 1
+  },
+  {
+   "fieldname": "address_display",
+   "fieldtype": "Small Text",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gst_category",
+   "fieldtype": "Data",
+   "label": "GST Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "place_of_supply",
+   "fieldtype": "Data",
+   "label": "Place Of Supply"
+  },
+  {
+   "fieldname": "column_break_tceuv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_display",
+   "fieldtype": "Small Text",
+   "label": "Contact",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_mobile",
+   "fieldtype": "Small Text",
+   "label": "Mobile No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shipping_address_section",
+   "fieldtype": "Section Break",
+   "label": "Shipping Address"
+  },
+  {
+   "fieldname": "shipping_address",
+   "fieldtype": "Link",
+   "label": "Shipping Address Name",
+   "options": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shipping_address_display",
+   "fieldtype": "Small Text",
+   "label": "Shipping Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_address",
+   "fieldtype": "Link",
+   "label": "Company Billing Address",
+   "options": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_address_display",
+   "fieldtype": "Small Text",
+   "label": "Billing Address Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_address_gstin",
+   "fieldtype": "Data",
+   "label": "Billing Address GSTIN",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_djewd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dispatch_address_name",
+   "fieldtype": "Link",
+   "label": "Dispatch Address Name",
+   "options": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dispatch_address",
+   "fieldtype": "Small Text",
+   "label": "Dispatch Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_address_section",
+   "fieldtype": "Section Break",
+   "label": "Company Address"
+  },
+  {
+   "fieldname": "company_address",
+   "fieldtype": "Link",
+   "label": "Company Address Name",
+   "options": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_rafsp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company_address_display",
+   "fieldtype": "Small Text",
+   "label": "Company Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_gstin",
+   "fieldtype": "Data",
+   "label": "Company Address GSTIN",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Open Order",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "connection_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connection",
+   "show_dashboard": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-30 18:19:03.227431",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Open Order",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

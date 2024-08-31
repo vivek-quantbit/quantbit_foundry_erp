@@ -1,0 +1,205 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-30 12:02:09.355316",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "hsnsac",
+  "party_item_code",
+  "column_break_3",
+  "qty",
+  "rate",
+  "amount",
+  "item_tax_template",
+  "gst_rate",
+  "uom",
+  "description",
+  "gst_details_section",
+  "igst_rate",
+  "igst_amount",
+  "column_break_kfjwf",
+  "cgst_rate",
+  "cgst_amount",
+  "column_break_dsskt",
+  "sgst_rate",
+  "sgst_amount",
+  "column_break_6hvh9",
+  "taxable_value",
+  "section_break_7",
+  "terms_and_conditions"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fetch_from": "item_code.gst_hsn_code",
+   "fieldname": "hsnsac",
+   "fieldtype": "Link",
+   "label": "HSN/SAC",
+   "options": "GST HSN Code"
+  },
+  {
+   "fieldname": "party_item_code",
+   "fieldtype": "Data",
+   "label": "Party Item Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Amount",
+   "precision": "2"
+  },
+  {
+   "fieldname": "item_tax_template",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Tax Template",
+   "options": "Item Tax Template"
+  },
+  {
+   "fetch_from": "item_tax_template.gst_rate",
+   "fieldname": "gst_rate",
+   "fieldtype": "Float",
+   "label": "GST Rate",
+   "precision": "2"
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fetch_from": "item_code.description",
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "gst_details_section",
+   "fieldtype": "Section Break",
+   "label": "GST Details"
+  },
+  {
+   "fieldname": "igst_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "IGST Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "igst_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "IGST Amount",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_kfjwf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cgst_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "CGST Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "cgst_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "CGST Amount",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_dsskt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sgst_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "SGST Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "sgst_amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "SGST Amount",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_6hvh9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "taxable_value",
+   "fieldtype": "Float",
+   "label": "Taxable Value",
+   "precision": "2"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Text",
+   "label": "Terms and Conditions",
+   "print_width": "5px",
+   "width": "5px"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-30 18:21:04.164847",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Open Order Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
