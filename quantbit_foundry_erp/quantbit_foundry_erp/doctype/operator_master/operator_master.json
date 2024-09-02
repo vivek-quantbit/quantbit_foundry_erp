@@ -58,7 +58,7 @@
    "unique": 1
   },
   {
-   "fetch_from": "supervisor.employee_name",
+   "fetch_from": "operator.employee_name",
    "fieldname": "operator_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -69,7 +69,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 16:47:53.234450",
+ "modified": "2024-09-02 12:47:58.957887",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Operator Master",

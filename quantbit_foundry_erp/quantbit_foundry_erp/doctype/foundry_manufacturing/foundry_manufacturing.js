@@ -223,12 +223,12 @@ frappe.ui.form.on('Foundry Manufacturing', {
 	setup: function(frm) {
 			frm.set_query("bom_reference", "finished_items", function(doc, cdt, cdn) {
 				let d = locals[cdt][cdn];
-				if(frm.doc.manufacturing_type && frm.doc.core_id){
+				if(frm.doc.manufacturing_type || frm.doc.core_id){
 					return {
 						filters: [
 							['Foundry Manufacturing BOM','manufacturing_type' ,"=" ,frm.doc.manufacturing_type],
-							['Foundry Manufacturing BOM','core_id' ,"=" ,frm.doc.core_id]
-							['Foundry Manufacturing BOM','enable','=', True]
+							['Foundry Manufacturing BOM','core_id' ,"=" ,frm.doc.core_id],
+							['Foundry Manufacturing BOM','enable','=', 1]
 						]
 					};
 				}

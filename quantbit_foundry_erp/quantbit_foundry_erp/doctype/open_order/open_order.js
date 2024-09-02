@@ -1,11 +1,7 @@
 // Copyright (c) 2024, Quantbit Technologies Pvt Ltd and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Open Order', {
-	// refresh: function(frm) {
-
-	// }
-});
+//  ============================================================= Filter ===================================================================================
 frappe.ui.form.on("Open Order", {
     setup: function(frm) {
         console.log("hello")
@@ -57,6 +53,8 @@ frappe.ui.form.on('Open Order', {
     }
 });
 
+// ======================================================== Open Order ===================================================================================
+
 frappe.ui.form.on('Open Order', {
 	supplier_id: function(frm) {
         frm.clear_table("purchase_taxes");
@@ -78,7 +76,8 @@ frappe.ui.form.on('Open Order', {
 
     },
 });
-
+ 
+// ========================================================= Open Order Details ============================================================================
 frappe.ui.form.on('Open Order Details', {
     item_code: function(frm) {
 		frm.clear_table("taxes");
@@ -168,7 +167,6 @@ refresh(frm){
          frm.trigger("make_sales_order")     
     },
     make_sales_order(frm){       
-        // console.log("Docstatus:", frm.doc.docstatus);
             if(frm.doc.docstatus == 1){
                 frm.add_custom_button(__("Sales Order"),() => {
                     if (frm.doc.blanket_order_type == "Selling")
@@ -180,8 +178,6 @@ refresh(frm){
                     
                 },__("Make")
                 )
-            // }
-             // }
         frm.add_custom_button(__("Purchase Order"),() => {
             if (frm.doc.blanket_order_type == "Purchasing")
                 {
