@@ -1,5 +1,5 @@
 frappe.provide('frappe.custom');
-
+// hello
 frappe.custom.set_filters_for_doctype = function(doctype_name, frm) {
     frappe.call({
         method: "frappe.client.get_list",
