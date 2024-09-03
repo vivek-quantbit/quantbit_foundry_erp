@@ -9,13 +9,14 @@
   "general_details_tab",
   "amended_from",
   "naming_series",
-  "section_break_yjtf",
-  "foundry_unit",
   "company",
-  "column_break_wnfu",
+  "section_break_yjtf",
   "heat_date",
+  "foundry_shift",
+  "foundry_shift_time",
   "column_break_qqdg",
   "posting_time",
+  "heat_number",
   "column_break_ayfl",
   "supervisor_id",
   "supervisor_name",
@@ -24,15 +25,13 @@
   "operator_name",
   "column_break_22yp",
   "moulding_contractor",
-  "moulding_contractor_name",
-  "foundry_shift",
-  "foundry_shift_time",
-  "heat_number"
+  "moulding_contractor_name"
  ],
  "fields": [
   {
    "fieldname": "section_break_yjtf",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "General details"
   },
   {
    "fieldname": "amended_from",
@@ -54,24 +53,6 @@
    "fieldtype": "Select",
    "label": "Series",
    "options": "POUR-"
-  },
-  {
-   "fieldname": "foundry_unit",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Foundry Unit",
-   "options": "Foundry Unit",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "foundry_unit.company",
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Company",
-   "options": "Company",
-   "read_only": 1,
-   "reqd": 1
   },
   {
    "default": "Today",
@@ -132,10 +113,6 @@
    "label": "Heat Number"
   },
   {
-   "fieldname": "column_break_wnfu",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_qqdg",
    "fieldtype": "Column Break"
   },
@@ -150,12 +127,20 @@
   {
    "fieldname": "column_break_22yp",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-28 15:09:18.791998",
+ "modified": "2024-08-30 15:06:42.860682",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pouring",
@@ -178,5 +163,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }
