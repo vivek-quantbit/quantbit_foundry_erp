@@ -6,24 +6,28 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_c9gx",
   "amended_from",
   "naming_series",
-  "column_break_ls7t",
-  "company",
-  "column_break_mker",
+  "section_break_4z5m",
   "posting_date",
+  "column_break_mker",
+  "company",
+  "column_break_jiaq",
+  "manufacturing_type",
+  "column_break_1sgd",
+  "enable",
   "finished_item_details_section",
   "item_group",
+  "uom",
   "section_break_s56c",
   "item_code",
-  "uom",
-  "column_break_wusc",
   "item_name",
+  "column_break_wusc",
+  "qty",
   "total_weight",
   "column_break_grdw",
-  "qty",
   "weight_per_unit",
+  "weight_uom",
   "core_type_section",
   "core_id",
   "column_break_9ai0",
@@ -47,7 +51,8 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "label": "Series"
+   "label": "Series",
+   "options": "FMB.-.####"
   },
   {
    "fieldname": "company",
@@ -82,7 +87,7 @@
    "fieldname": "raw_items",
    "fieldtype": "Table",
    "label": "Raw Material BOM Details",
-   "options": "Raw Material BOM Details"
+   "options": "Foundry Manufacturing BOM Raw Material Details"
   },
   {
    "fieldname": "core_type_section",
@@ -92,7 +97,7 @@
   {
    "fieldname": "core_id",
    "fieldtype": "Link",
-   "label": "Core Id",
+   "label": "Core ID",
    "options": "Core Type"
   },
   {
@@ -103,12 +108,13 @@
    "fetch_from": "core_id.core_type",
    "fieldname": "core_name",
    "fieldtype": "Data",
-   "label": "Core Name"
+   "label": "Core Name",
+   "read_only": 1
   },
   {
    "fieldname": "remark_section",
    "fieldtype": "Section Break",
-   "label": "Remark If Any"
+   "label": "Remarks"
   },
   {
    "fieldname": "remark",
@@ -118,20 +124,24 @@
   {
    "fieldname": "item_code",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Finished Item Code",
    "options": "Item",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Data",
-   "label": "Finished Item Name"
+   "in_standard_filter": 1,
+   "label": "Finished Item Name",
+   "read_only": 1
   },
   {
    "fieldname": "qty",
    "fieldtype": "Float",
-   "label": "Qty",
+   "label": "Quantity",
    "precision": "2",
    "reqd": 1
   },
@@ -143,7 +153,7 @@
    "fetch_from": "item_code.stock_uom",
    "fieldname": "uom",
    "fieldtype": "Link",
-   "label": "Uom",
+   "label": "UOM",
    "options": "UOM"
   },
   {
@@ -165,26 +175,56 @@
   {
    "fieldname": "item_group",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Finished Item Group",
    "options": "Item Group"
   },
   {
    "fieldname": "section_break_s56c",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "section_break_c9gx",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_ls7t",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturing_type",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Manufacturing Type",
+   "options": "Manufacturing Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jiaq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Is BOM Enable"
+  },
+  {
+   "fieldname": "column_break_1sgd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_4z5m",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "weight_uom",
+   "fieldtype": "Link",
+   "label": "Weight UOM",
+   "options": "UOM"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-08-30 15:06:44.431908",
+ "links": [
+  {
+   "link_doctype": "Foundry Manufacturing",
+   "link_fieldname": "bom_reference"
+  }
+ ],
+ "modified": "2024-08-28 18:18:29.138197",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Foundry Manufacturing BOM",
@@ -192,6 +232,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -205,6 +246,7 @@
    "write": 1
   }
  ],
+ "search_fields": "item_code,item_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

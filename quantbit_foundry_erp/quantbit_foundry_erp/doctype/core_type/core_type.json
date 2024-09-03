@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "column_break_w82a",
   "company",
   "section_break_gccj",
   "core_type"
@@ -21,25 +22,34 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Company",
-   "options": "Company"
+   "options": "Company",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_gccj",
-   "fieldtype": "Section Break"
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "core_type",
    "fieldtype": "Data",
-   "label": "Core Type"
+   "in_list_view": 1,
+   "label": "Core Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_w82a",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 15:06:44.153949",
+ "modified": "2024-08-28 11:01:24.744464",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Core Type",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

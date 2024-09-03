@@ -33,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 15:06:43.944248",
+ "modified": "2024-08-27 15:14:35.660145",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Foundry Unit",
@@ -55,6 +55,5 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "states": []
 }

@@ -6,10 +6,17 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "company",
   "section_break_wbasg",
   "grade_type"
  ],
  "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
   {
    "fieldname": "section_break_wbasg",
    "fieldtype": "Section Break"
@@ -23,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 15:06:42.566894",
+ "modified": "2024-08-28 11:01:26.369710",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Grade Type",
@@ -45,6 +52,5 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "states": []
 }

@@ -1,7 +1,7 @@
 app_name = "quantbit_foundry_erp"
 app_title = "Quantbit Foundry ERP"
 app_publisher = "Quantbit Technologies Pvt Ltd"
-app_description = "Our cutting-edge quantbit_foundry_erp is designed to revolutionise the way foundries manage their operations. Tailored specifically for the unique needs of the foundry industry, this comprehensive ERP solution integrates all aspects of foundry management into a single, user-friendly platform."
+app_description = "Our cutting-edge quanbit_foundry_erp is designed to revolutionise the way foundries manage their operations. Tailored specifically for the unique needs of the foundry industry, this comprehensive ERP solution integrates all aspects of foundry management into a single, user-friendly platform."
 app_email = "support@quantbit.io"
 app_license = "mit"
 # required_apps = []
@@ -235,11 +235,3 @@ fixtures = [
         ],
     },
 ]
-
-doctype_js = {
-    "Pattern Master": "public/js/filter.js",
-    "Grade Master": "public/js/filter.js",
-    "Operator Master": "public/js/filter.js",
-    "Supervisor Master": "public/js/filter.js",
-    "Foundry Filter Setting DocType": "public/js/filter.js",
-}
