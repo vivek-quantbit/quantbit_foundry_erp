@@ -333,7 +333,7 @@
    "link_fieldname": "custom_foundry_manufacturing"
   }
  ],
- "modified": "2024-08-28 18:25:15.913354",
+ "modified": "2024-08-30 15:10:13.529639",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Foundry Manufacturing",
@@ -357,5 +357,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

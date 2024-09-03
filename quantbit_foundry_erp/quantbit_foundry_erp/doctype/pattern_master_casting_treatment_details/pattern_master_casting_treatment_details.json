@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-01 09:03:43.870217",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "casting_treatment",
+  "column_break_n61xg",
+  "finished_target_warehouse",
+  "column_break_hzsfx",
+  "finished_source_warehouse",
+  "section_break_l2uhs",
+  "casting_item_code",
+  "column_break_faqxz",
+  "casting_item_name",
+  "column_break_ma2vp",
+  "raw_item_code",
+  "column_break_z77ua",
+  "raw_item_name",
+  "column_break_hvoaj",
+  "quantity",
+  "column_break_24klx",
+  "casting_treatment_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "casting_treatment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Casting Treatment",
+   "options": "Casting Treatment Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_n61xg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "finished_target_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Finished Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_hzsfx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "finished_source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Finished Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "section_break_l2uhs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_faqxz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "casting_item_code.item_name",
+   "fieldname": "casting_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Casting Item Name"
+  },
+  {
+   "fieldname": "column_break_ma2vp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raw_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Raw Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_z77ua",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "raw_item_code.item_name",
+   "fieldname": "raw_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Raw Item Name"
+  },
+  {
+   "fieldname": "column_break_hvoaj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_24klx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Define rate for unit item to do the casting treatment",
+   "fieldname": "casting_treatment_rate",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Casting Treatment Rate"
+  },
+  {
+   "description": "Quantity Of Raw Item Per Unit Casting Item",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "precision": "2"
+  },
+  {
+   "fieldname": "casting_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Casting Item Code",
+   "options": "Item",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-01 22:04:02.999263",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Pattern Master Casting Treatment Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

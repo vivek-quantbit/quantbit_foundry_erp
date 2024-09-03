@@ -1,32 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:grade_type",
- "creation": "2024-08-08 14:58:35.973090",
+ "autoname": "field:casting_treatment_name",
+ "creation": "2024-09-01 08:50:05.429742",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_wbasg",
-  "grade_type"
+  "casting_treatment_name"
  ],
  "fields": [
   {
-   "fieldname": "section_break_wbasg",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "grade_type",
+   "fieldname": "casting_treatment_name",
    "fieldtype": "Data",
-   "label": "Grade Type",
+   "label": "Casting Treatment Name",
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 15:06:42.566894",
+ "modified": "2024-09-01 08:50:59.521592",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Grade Type",
+ "name": "Casting Treatment Master",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -45,6 +40,5 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "states": []
 }
