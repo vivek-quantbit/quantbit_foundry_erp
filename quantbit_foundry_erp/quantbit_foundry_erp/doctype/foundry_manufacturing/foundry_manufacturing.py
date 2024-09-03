@@ -154,6 +154,7 @@ class FoundryManufacturing(Document):
 			doc.company = self.company
 			doc.set_posting_time = True
 			doc.posting_date =self.posting_date
+			doc.from_warehouse = self.source_warehouse
 			doc.append("items", {
 				"item_code": f.item_code,
 				"qty": f.ok_qty,
@@ -193,6 +194,7 @@ class FoundryManufacturing(Document):
 			doc.company = self.company
 			doc.set_posting_time = True
 			doc.posting_date =self.posting_date
+			doc.from_warehouse = self.source_warehouse
 			for i in self.get("raw_items"):	
 				doc.append("items", {
 					"s_warehouse": i.source_warehouse,
