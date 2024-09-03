@@ -3,7 +3,7 @@ name = "quantbit_foundry_erp"
 authors = [
     { name = "Quantbit Technologies Pvt Ltd", email = "support@quantbit.io"}
 ]
-description = "Our cutting-edge quanbit_foundry_erp is designed to revolutionise the way foundries manage their operations. Tailored specifically for the unique needs of the foundry industry, this comprehensive ERP solution integrates all aspects of foundry management into a single, user-friendly platform."
+description = "Our cutting-edge quantbit_foundry_erp is designed to revolutionise the way foundries manage their operations. Tailored specifically for the unique needs of the foundry industry, this comprehensive ERP solution integrates all aspects of foundry management into a single, user-friendly platform."
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

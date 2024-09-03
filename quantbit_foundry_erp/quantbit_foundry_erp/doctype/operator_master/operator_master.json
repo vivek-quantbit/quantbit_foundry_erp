@@ -19,7 +19,7 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Series",
-   "options": "SUPV-.###."
+   "options": "OPER-.###."
   },
   {
    "fetch_from": "foundry_unit.company",
@@ -69,7 +69,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-02 12:47:58.957887",
+ "modified": "2024-08-30 15:06:43.450900",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Operator Master",
