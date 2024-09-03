@@ -46,7 +46,8 @@
    "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Data",
-   "label": "Item Name"
+   "label": "Item Name",
+   "read_only": 1
   },
   {
    "fetch_from": "item_code.gst_hsn_code",
@@ -193,7 +194,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-30 18:21:04.164847",
+ "modified": "2024-09-02 12:44:22.135151",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Open Order Details",

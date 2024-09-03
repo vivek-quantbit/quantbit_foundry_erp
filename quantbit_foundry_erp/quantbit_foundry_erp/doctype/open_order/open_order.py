@@ -8,11 +8,11 @@ from erpnext.stock.get_item_details import get_item_details
 from frappe.model.mapper import get_mapped_doc
 class OpenOrder(Document):
 	
+	#  Add supplier address
 	@frappe.whitelist()
 	def supplier_address(self,):
 		if self.supplier_id and self.company:
 			doc=get_party_details(company=self.company,party=self.supplier_id,party_type="Supplier",fetch_payment_terms_template=True,currency="INR",price_list="Standard Buying",posting_date=self.date,doctype="Purchase Order")
-			# frappe.throw(str(doc))
 			self.party_name = doc.supplier
 			self.address = doc.supplier_address
 			self.supplier_gstin = doc.supplier_gstin
@@ -29,8 +29,6 @@ class OpenOrder(Document):
 			self.contact_display = doc.contact_display
 			self.contact_email = doc.contact_email
 			self.contact_mobile = doc.contact_mobile
-			# self.tax_category= frappe.get_value("Purchase Taxes and Charges Template",{"name":doc.taxes_and_charges},"tax_category")
-			# frappe.throw(str(doc))
 			if doc.taxes:
 				for i in doc.taxes:
 					self.append("purchase_taxes",{
@@ -54,7 +52,7 @@ class OpenOrder(Document):
 						
 					})
 					
-					
+	#  Add customer Address
 	@frappe.whitelist()
 	def customer_address(self):
 		if self.customer and self.company:
@@ -77,9 +75,6 @@ class OpenOrder(Document):
 			self.contact_display = doc.contact_display
 			self.contact_email = doc.contact_email
 			self.contact_mobile = doc.contact_mobile
-			# self.tax_category= frappe.get_value("Sales Taxes and Charges Template",{"name":doc.taxes_and_charges},"tax_category")
-			
-			
 			if doc.taxes:
 				for i in doc.taxes:
 					self.append("taxes",{
@@ -100,8 +95,7 @@ class OpenOrder(Document):
 							"dont_recompute_tax":i.dont_recompute_tax,
 						})
 				
-
-		
+	# To add tax template
 	@frappe.whitelist()
 	def item_tax_template(self):
 		for i in self.get("items"):	
@@ -110,13 +104,12 @@ class OpenOrder(Document):
 			i.gst_rate = frappe.get_value("Item Tax Template",{"name":child.item_tax_template},"gst_rate")
 			
 
-            
-		# 
 	@frappe.whitelist()
 	def call_two(self):
 		self.calculate_tax()
 		self.scalculate_tax()
 
+	#  TO calculate tax in tax table for customer
 	@frappe.whitelist()
 	def calculate_tax(self):
 		if self.customer:
@@ -135,7 +128,6 @@ class OpenOrder(Document):
 					i.cgst_amount = i.sgst_amount = round((i.amount / 100) * (i.cgst_rate), 2)
 					i.taxable_value = i.cgst_amount + i.sgst_amount
 					tot_taxable_amount += i.taxable_value
-					# tot_taxable_amount = tot_taxable_amount/2
 				else :
 					i.igst_rate = i.gst_rate
 					i.igst_amount = round((i.amount / 100) * (i.igst_rate), 2)
@@ -161,6 +153,7 @@ class OpenOrder(Document):
 				})
 		
     
+    #  TO calculate tax in tax table for supplier
 	@frappe.whitelist()
 	def scalculate_tax(self):
 		if self.supplier_id:
@@ -178,7 +171,6 @@ class OpenOrder(Document):
 					i.cgst_amount = i.sgst_amount = round((i.amount / 100) * (i.cgst_rate), 2)
 					i.taxable_value = i.cgst_amount + i.sgst_amount
 					tot_taxable_amount += i.taxable_value
-					# tot_taxable_amount = tot_taxable_amount/2
 				else :
 					i.igst_rate = i.gst_rate
 					i.igst_amount = round((i.amount / 100) * (i.igst_rate), 2)
@@ -203,7 +195,7 @@ class OpenOrder(Document):
 					"total": round(tot_amount, 2)
 				})
 
-
+#  To map data from open order to sales order
 @frappe.whitelist()
 def make_sales_order(source_name,target_doc = None):
 	def set_missing_values(source,target):
@@ -253,15 +245,15 @@ def make_sales_order(source_name,target_doc = None):
                     "tax_amount":"base_tax_amount",
                     "total":"total"
 				},
-				# "postprocess":update_item_quantity,
 				},
 			target_doc:
 			set_missing_values,
 		}
 		)
-	# frappe.msgprint("doclist")
 	return doclist
 
+
+#  To map data from open order to purchase order
 @frappe.whitelist()
 def make_purchase_order(source_name,target_doc = None):
 	def set_missing_values(source,target):
@@ -307,11 +299,9 @@ def make_purchase_order(source_name,target_doc = None):
                     "tax_amount":"tax_amount",
                     "total":"total"
 				},
-				# "postprocess":update_item_quantity,
 				},
 			target_doc:
 			set_missing_values,
 		}
 		)
-	# frappe.msgprint("doclist")
 	return doclist
