@@ -234,6 +234,9 @@ fixtures = [
             ["name", "in", ["Foundry Operator","Foundry Supervisor"]],
         ],
     },
+    {
+        "doctype": "Foundry Filter Setting DocType",
+    },
 ]
 
 doctype_js = {

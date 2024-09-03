@@ -1,0 +1,302 @@
+[
+ {
+  "docchild_name": null,
+  "docfield_name": "supervisor",
+  "doclink_name": "Employee",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Supervisor Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": null,
+    "filterfield_field": "company",
+    "filterfield_name": "company",
+    "filterfield_type": "=",
+    "parent": "Supervisor Master--supervisor",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 14:12:50.812260",
+  "name": "Supervisor Master--supervisor"
+ },
+ {
+  "docchild_name": null,
+  "docfield_name": "operator",
+  "doclink_name": "Employee",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Operator Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": null,
+    "filterfield_field": "company",
+    "filterfield_name": "company",
+    "filterfield_type": "=",
+    "parent": "Operator Master--operator",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 14:12:31.791931",
+  "name": "Operator Master--operator"
+ },
+ {
+  "docchild_name": null,
+  "docfield_name": "scrap_item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Grade Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Raw Material",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Grade Master--scrap_item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 14:14:42.941030",
+  "name": "Grade Master--scrap_item_code"
+ },
+ {
+  "docchild_name": null,
+  "docfield_name": "heal_item_name",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Grade Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Raw Material",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Grade Master--heal_item_name",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 14:12:39.459951",
+  "name": "Grade Master--heal_item_name"
+ },
+ {
+  "docchild_name": "grade_items_details",
+  "docfield_name": "item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Grade Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Raw Material",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Grade Master-grade_items_details-item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 14:14:14.080584",
+  "name": "Grade Master-grade_items_details-item_code"
+ },
+ {
+  "docchild_name": null,
+  "docfield_name": "pattern_item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Pattern",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Pattern Master--pattern_item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 14:14:34.292261",
+  "name": "Pattern Master--pattern_item_code"
+ },
+ {
+  "docchild_name": "",
+  "docfield_name": "pattern_grade",
+  "doclink_name": "Grade Master",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "",
+    "filterfield_field": "pattern_grade_type",
+    "filterfield_name": "grade_type",
+    "filterfield_type": "=",
+    "parent": "Pattern Master--pattern_grade",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 17:44:31.814731",
+  "name": "Pattern Master--pattern_grade"
+ },
+ {
+  "docchild_name": "pattern_master_casting_material_details",
+  "docfield_name": "casting_item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Casting",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_material_details-item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   },
+   {
+    "filterfield_data": "",
+    "filterfield_field": "pattern_grade",
+    "filterfield_name": "custom_grade",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_material_details-item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-09-01 22:08:44.828946",
+  "name": "Pattern Master-pattern_master_casting_material_details-item_code"
+ },
+ {
+  "docchild_name": "pattern_master_moulding_sand_details",
+  "docfield_name": "sand_item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Moulding",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_moulding_sand_details-sand_item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-08-31 22:03:40.745722",
+  "name": "Pattern Master-pattern_master_moulding_sand_details-sand_item_code"
+ },
+ {
+  "docchild_name": "pattern_master_core_material_details",
+  "docfield_name": "core_item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Core",
+    "filterfield_field": null,
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_core_material_details-item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-09-01 22:18:24.581197",
+  "name": "Pattern Master-pattern_master_core_material_details-item_code"
+ },
+ {
+  "docchild_name": "pattern_master_casting_treatment_details",
+  "docfield_name": "raw_item_code",
+  "doclink_name": "Item",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "Raw Material",
+    "filterfield_field": "",
+    "filterfield_name": "custom_item_group_type",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_treatment_details-raw_item_code",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-09-01 10:13:25.939072",
+  "name": "Pattern Master-pattern_master_casting_treatment_details-raw_item_code"
+ },
+ {
+  "docchild_name": "pattern_master_casting_treatment_details",
+  "docfield_name": "finished_target_warehouse",
+  "doclink_name": "Warehouse",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "",
+    "filterfield_field": "company",
+    "filterfield_name": "company",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_treatment_details-finished_target_warehouse",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   },
+   {
+    "filterfield_data": "0",
+    "filterfield_field": null,
+    "filterfield_name": "is_group",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_treatment_details-finished_target_warehouse",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-09-01 22:44:25.665704",
+  "name": "Pattern Master-pattern_master_casting_treatment_details-finished_target_warehouse"
+ },
+ {
+  "docchild_name": "pattern_master_casting_treatment_details",
+  "docfield_name": "finished_source_warehouse",
+  "doclink_name": "Warehouse",
+  "docstatus": 0,
+  "doctype": "Foundry Filter Setting DocType",
+  "doctype_name": "Pattern Master",
+  "foundry_filter_setting_doctype_details": [
+   {
+    "filterfield_data": "",
+    "filterfield_field": "company",
+    "filterfield_name": "company",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_treatment_details-finished_source_warehouse",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   },
+   {
+    "filterfield_data": "0",
+    "filterfield_field": null,
+    "filterfield_name": "is_group",
+    "filterfield_type": "=",
+    "parent": "Pattern Master-pattern_master_casting_treatment_details-finished_source_warehouse",
+    "parentfield": "foundry_filter_setting_doctype_details",
+    "parenttype": "Foundry Filter Setting DocType"
+   }
+  ],
+  "modified": "2024-09-01 22:44:06.558442",
+  "name": "Pattern Master-pattern_master_casting_treatment_details-finished_source_warehouse"
+ }
+]
