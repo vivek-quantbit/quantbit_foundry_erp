@@ -33,7 +33,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 11:01:25.196656",
+ "modified": "2024-09-11 15:51:23.905225",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Manufacturing Type",
@@ -57,5 +57,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "track_changes": 1,
  "track_seen": 1
 }

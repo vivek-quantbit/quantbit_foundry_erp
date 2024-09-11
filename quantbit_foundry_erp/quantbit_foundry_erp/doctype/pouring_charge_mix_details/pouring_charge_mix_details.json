@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-10 11:50:02.766342",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "raw_item_code",
+  "column_break_86npc",
+  "raw_item_name",
+  "column_break_yiewg",
+  "source_warehouse",
+  "column_break_dn7me",
+  "available_stock",
+  "column_break_ov3qy",
+  "required_quantity",
+  "column_break_dg5d",
+  "used_quantity"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "raw_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Raw Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_86npc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "raw_item_code.item_name",
+   "fieldname": "raw_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Raw Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yiewg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_dn7me",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "available_stock",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Available Stock",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ov3qy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "required_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Required Quantity",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dg5d",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "used_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Used Quantity",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-10 20:33:39.820289",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Pouring Charge Mix Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

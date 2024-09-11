@@ -10,9 +10,9 @@
   "column_break_3zxs",
   "sand_item_name",
   "column_break_ekw9",
-  "quantity",
+  "uom",
   "column_break_8gbt",
-  "uom"
+  "quantity"
  ],
  "fields": [
   {
@@ -60,7 +60,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-31 22:07:54.492369",
+ "modified": "2024-09-11 11:35:44.456924",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pattern Master Moulding Sand Details",

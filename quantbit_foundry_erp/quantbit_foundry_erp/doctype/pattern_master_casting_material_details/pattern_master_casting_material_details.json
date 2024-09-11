@@ -13,8 +13,9 @@
   "weight",
   "column_break_pkxvv",
   "uom",
+  "column_break_pgnh",
+  "cavity_type",
   "section_break_nx3pr",
-  "quantity_per_box",
   "column_break_wdgv",
   "from_bhn",
   "column_break_dsweu",
@@ -76,13 +77,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "quantity_per_box",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Quantity Per Box",
-   "reqd": 1
-  },
-  {
    "fieldname": "casting_item_code",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -97,12 +91,24 @@
    "in_list_view": 1,
    "label": "Casting Item Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pgnh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cavity_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Cavity Type",
+   "options": "\nCavity 1\nCavity 2\nCavity 3\nCavity 4\nCavity 5\nCavity 6\nCavity 7\nCavity 8\nCavity 9\nCavity 10",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-01 22:15:13.071695",
+ "modified": "2024-09-09 11:52:51.695047",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pattern Master Casting Material Details",

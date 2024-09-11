@@ -13,7 +13,6 @@
   "section_break_yjtf",
   "heat_date",
   "foundry_shift",
-  "foundry_shift_time",
   "column_break_qqdg",
   "posting_time",
   "heat_number",
@@ -25,7 +24,50 @@
   "operator_name",
   "column_break_22yp",
   "moulding_contractor",
-  "moulding_contractor_name"
+  "moulding_contractor_name",
+  "pouring_details_tab",
+  "furnace",
+  "column_break_knid",
+  "furnace_capacity",
+  "column_break_azr8",
+  "grade_type",
+  "column_break_jcqf",
+  "grade",
+  "section_break_yjyb",
+  "pattern_details",
+  "casting_details",
+  "section_break_urrs",
+  "total_casting_quantity",
+  "column_break_ofmq",
+  "total_casting_weight",
+  "column_break_leqi",
+  "total_rr_weight",
+  "column_break_gamu",
+  "total_pouring_weight",
+  "section_break_zlrf",
+  "heat_start_time",
+  "initial_power_reading",
+  "column_break_rznc",
+  "heat_end_time",
+  "final_power_reading",
+  "column_break_jhop",
+  "total_heat_time",
+  "total_power_consumed",
+  "section_break_dfwt",
+  "tapping_temperature",
+  "column_break_rokf",
+  "pouring_temperature",
+  "charge_mix_details_tab",
+  "charge_mix_details",
+  "total_consumed_weight",
+  "consumables_details_tab",
+  "core_details",
+  "total_core_quantity",
+  "section_break_vlvs",
+  "moulding_sand_details",
+  "total_moulding_sand_quantity",
+  "additional_cost_details_tab",
+  "additional_cost_details"
  ],
  "fields": [
   {
@@ -69,40 +111,42 @@
   },
   {
    "fieldname": "supervisor_id",
-   "fieldtype": "Data",
-   "label": "Supervisor ID"
+   "fieldtype": "Link",
+   "label": "Supervisor ID",
+   "options": "Foundry Supervisor Master"
   },
   {
    "fieldname": "operator_id",
-   "fieldtype": "Data",
-   "label": "Operator ID"
+   "fieldtype": "Link",
+   "label": "Operator ID",
+   "options": "Foundry Operator Master"
   },
   {
    "fieldname": "moulding_contractor",
-   "fieldtype": "Data",
-   "label": "Moulding Contractor"
+   "fieldtype": "Link",
+   "label": "Moulding Contractor",
+   "options": "Supplier"
   },
   {
    "fieldname": "foundry_shift",
-   "fieldtype": "Data",
-   "label": "Foundry Shift"
+   "fieldtype": "Link",
+   "label": "Foundry Shift",
+   "options": "Foundry Shift"
   },
   {
-   "fieldname": "foundry_shift_time",
-   "fieldtype": "Data",
-   "label": "Foundry Shift Time"
-  },
-  {
+   "fetch_from": "supervisor_id.supervisor_name",
    "fieldname": "supervisor_name",
    "fieldtype": "Data",
    "label": "Supervisor Name"
   },
   {
+   "fetch_from": "operator_id.operator_name",
    "fieldname": "operator_name",
    "fieldtype": "Data",
    "label": "Operator Name"
   },
   {
+   "fetch_from": "moulding_contractor.supplier_name",
    "fieldname": "moulding_contractor_name",
    "fieldtype": "Data",
    "label": "Moulding Contractor Name"
@@ -135,12 +179,237 @@
    "label": "Company",
    "options": "Company",
    "reqd": 1
+  },
+  {
+   "fieldname": "pouring_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Pouring Details"
+  },
+  {
+   "fieldname": "furnace",
+   "fieldtype": "Link",
+   "label": "Furnace",
+   "options": "Furnace Master"
+  },
+  {
+   "fieldname": "pattern_details",
+   "fieldtype": "Table",
+   "label": "Pattern Details",
+   "options": "Pouring Pattern Details"
+  },
+  {
+   "fieldname": "casting_details",
+   "fieldtype": "Table",
+   "label": "Casting Details",
+   "options": "Pouring Casting Details"
+  },
+  {
+   "fieldname": "column_break_azr8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grade_type",
+   "fieldtype": "Link",
+   "label": "Grade Type",
+   "options": "Grade Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jcqf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Link",
+   "label": "Grade",
+   "options": "Grade Master",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_yjyb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_urrs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_casting_weight",
+   "fieldtype": "Float",
+   "label": "Total Casting Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_casting_quantity",
+   "fieldtype": "Float",
+   "label": "Total Casting Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ofmq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_leqi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_rr_weight",
+   "fieldtype": "Float",
+   "label": "Total RR Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_knid",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "charge_mix_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Charge Mix Details"
+  },
+  {
+   "fieldname": "column_break_gamu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "furnace.furnace_capacity",
+   "fieldname": "furnace_capacity",
+   "fieldtype": "Float",
+   "label": "Furnace Capacity (In Kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_consumed_weight",
+   "fieldtype": "Float",
+   "label": "Total Consumed Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_pouring_weight",
+   "fieldtype": "Float",
+   "label": "Total Pouring Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "consumables_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Consumables Details"
+  },
+  {
+   "fieldname": "core_details",
+   "fieldtype": "Table",
+   "label": "Core Details",
+   "options": "Pouring Core Details"
+  },
+  {
+   "fieldname": "charge_mix_details",
+   "fieldtype": "Table",
+   "label": "Charge Mix Details",
+   "options": "Pouring Charge Mix Details"
+  },
+  {
+   "fieldname": "section_break_vlvs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_core_quantity",
+   "fieldtype": "Float",
+   "label": "Total Core Quantity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "moulding_sand_details",
+   "fieldtype": "Table",
+   "label": "Moulding Sand Details",
+   "options": "Pouring Moulding Sand Details"
+  },
+  {
+   "fieldname": "total_moulding_sand_quantity",
+   "fieldtype": "Float",
+   "label": "Total Moulding Sand Quantity"
+  },
+  {
+   "fieldname": "section_break_zlrf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "heat_start_time",
+   "fieldtype": "Time",
+   "label": "Heat Start Time"
+  },
+  {
+   "fieldname": "column_break_rznc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "heat_end_time",
+   "fieldtype": "Time",
+   "label": "Heat End Time"
+  },
+  {
+   "fieldname": "column_break_jhop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "00:00:01",
+   "fieldname": "total_heat_time",
+   "fieldtype": "Time",
+   "label": "Total Heat Time",
+   "read_only": 1
+  },
+  {
+   "description": "Enter value in terms of Units",
+   "fieldname": "initial_power_reading",
+   "fieldtype": "Float",
+   "label": "Initial Power Reading"
+  },
+  {
+   "description": "Enter value in terms of Units",
+   "fieldname": "final_power_reading",
+   "fieldtype": "Float",
+   "label": "Final Power Reading"
+  },
+  {
+   "fieldname": "total_power_consumed",
+   "fieldtype": "Float",
+   "label": "Total Power Consumed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_dfwt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tapping_temperature",
+   "fieldtype": "Float",
+   "label": "Tapping Temperature ( \u00b0C)"
+  },
+  {
+   "fieldname": "column_break_rokf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pouring_temperature",
+   "fieldtype": "Float",
+   "label": "Pouring Temperature ( \u00b0C)"
+  },
+  {
+   "fieldname": "additional_cost_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Cost Details"
+  },
+  {
+   "fieldname": "additional_cost_details",
+   "fieldtype": "Table",
+   "label": "Additional Cost Details",
+   "options": "Pouring Additional Cost Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-30 15:06:42.860682",
+ "modified": "2024-09-11 15:51:22.860723",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pouring",

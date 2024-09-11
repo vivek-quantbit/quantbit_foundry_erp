@@ -15,12 +15,20 @@
   "column_break_9snq",
   "pattern_grade_type",
   "pattern_grade",
-  "column_break_wgaw",
+  "column_break_p3es",
   "pattern_owner_type",
   "match_plate_size",
-  "column_break_p3es",
-  "customer_name",
+  "column_break_smht",
   "customer_code",
+  "customer_name",
+  "section_break_qdlg",
+  "box_weight",
+  "column_break_nkuq",
+  "casting_weight",
+  "column_break_jtns",
+  "rr_weight",
+  "section_break_sb7p",
+  "pattern_master_cavity_details",
   "pattern_life_section",
   "pattern_life",
   "column_break_yqko",
@@ -136,10 +144,6 @@
    "options": "Grade Type"
   },
   {
-   "fieldname": "column_break_wgaw",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "match_plate_size",
    "fieldtype": "Link",
    "label": "Match Plate Size",
@@ -210,11 +214,56 @@
    "fieldtype": "Table",
    "label": "Pattern Master Casting Treatment Details",
    "options": "Pattern Master Casting Treatment Details"
+  },
+  {
+   "fieldname": "box_weight",
+   "fieldtype": "Float",
+   "label": "Total Box Weight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_smht",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_sb7p",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pattern_master_cavity_details",
+   "fieldtype": "Table",
+   "label": "Pattern Master Cavity Details",
+   "options": "Pattern Master Cavity Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rr_weight",
+   "fieldtype": "Float",
+   "label": "Runner & Riser Weight(Per Box)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_qdlg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nkuq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jtns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "casting_weight",
+   "fieldtype": "Float",
+   "label": "Total Casting Weight(Per Box)",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-01 22:35:56.293354",
+ "modified": "2024-09-11 15:51:22.294942",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pattern Master",
