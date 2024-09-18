@@ -245,4 +245,5 @@ doctype_js = {
     "Operator Master": "public/js/filter.js",
     "Supervisor Master": "public/js/filter.js",
     "Foundry Filter Setting DocType": "public/js/filter.js",
+    "Pouring": "public/js/filter.js",
 }

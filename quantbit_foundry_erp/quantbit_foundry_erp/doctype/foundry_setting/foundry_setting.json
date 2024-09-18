@@ -11,16 +11,14 @@
   "pouring_default_settings_section",
   "ft_warehouse",
   "ms_warehouse",
+  "acs_warehouse",
   "column_break_pfgu",
   "cms_warehouse",
+  "st_warehouse",
   "exceed_limit",
   "column_break_amcj",
   "cs_warehouse",
-  "section_break_powb",
-  "is_electricity_charges_applicable",
-  "is_labour_charges_applicable",
-  "expense_head_account",
-  "pouring_labour_charges_details"
+  "ht_warehouse"
  ],
  "fields": [
   {
@@ -79,43 +77,27 @@
    "options": "Warehouse"
   },
   {
-   "fieldname": "section_break_powb",
-   "fieldtype": "Section Break",
-   "label": "Pouring Additional Charges Details"
-  },
-  {
-   "depends_on": "is_labour_charges_applicable",
-   "fieldname": "pouring_labour_charges_details",
-   "fieldtype": "Table",
-   "label": "Pouring Labour Charges Details",
-   "mandatory_depends_on": "is_labour_charges_applicable",
-   "options": "Foundry Setting Pouring Labour Charges Details"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_labour_charges_applicable",
-   "fieldtype": "Check",
-   "label": "Is Labour Charges Applicable"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_electricity_charges_applicable",
-   "fieldtype": "Check",
-   "label": "Is Electricity Charges Applicable"
-  },
-  {
-   "depends_on": "is_labour_charges_applicable",
-   "description": "Expense Head / Account  for Labour Charge",
-   "fieldname": "expense_head_account",
+   "fieldname": "st_warehouse",
    "fieldtype": "Link",
-   "label": "Expense Head / Account ",
-   "mandatory_depends_on": "is_labour_charges_applicable",
-   "options": "Account"
+   "label": "Scrap Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "ht_warehouse",
+   "fieldtype": "Link",
+   "label": "Heal Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "acs_warehouse",
+   "fieldtype": "Link",
+   "label": "Additional Consumable Source Warehouse",
+   "options": "Warehouse"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-11 19:33:11.536348",
+ "modified": "2024-09-18 13:58:59.727714",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Foundry Setting",

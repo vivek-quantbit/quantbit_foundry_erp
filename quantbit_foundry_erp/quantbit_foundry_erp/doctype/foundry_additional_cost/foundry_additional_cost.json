@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{company}-{foundry_additional_cost_type}",
+ "creation": "2024-09-13 11:39:45.968644",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "is_enable",
+  "column_break_zrld",
+  "foundry_additional_cost_type",
+  "expense_head_account",
+  "section_break_kcnt",
+  "foundry_additional_cost_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_zrld",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "foundry_additional_cost_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Foundry Additional Cost Type",
+   "options": "Foundry Additional Cost Type",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "section_break_kcnt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "The cost will be calculated from \"From Date\"",
+   "fieldname": "foundry_additional_cost_details",
+   "fieldtype": "Table",
+   "label": "Foundry Additional Cost Details",
+   "options": "Foundry Additional Cost Details"
+  },
+  {
+   "fieldname": "expense_head_account",
+   "fieldtype": "Link",
+   "label": "expense_head_account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_enable",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Enable"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-16 14:14:18.830845",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Foundry Additional Cost",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_seen": 1
+}

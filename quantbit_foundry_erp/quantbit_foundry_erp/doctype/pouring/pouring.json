@@ -27,6 +27,8 @@
   "moulding_contractor_name",
   "pouring_details_tab",
   "furnace",
+  "is_sales_order_applicable",
+  "sales_order",
   "column_break_knid",
   "furnace_capacity",
   "column_break_azr8",
@@ -57,15 +59,20 @@
   "tapping_temperature",
   "column_break_rokf",
   "pouring_temperature",
+  "section_break_ftor",
+  "ladle_details",
+  "lab_readings",
   "charge_mix_details_tab",
   "charge_mix_details",
   "total_consumed_weight",
+  "retained_items_details",
   "consumables_details_tab",
   "core_details",
   "total_core_quantity",
-  "section_break_vlvs",
   "moulding_sand_details",
   "total_moulding_sand_quantity",
+  "additional_consumable_details",
+  "total_additional_consumable_quantity",
   "additional_cost_details_tab",
   "additional_cost_details"
  ],
@@ -195,13 +202,15 @@
    "fieldname": "pattern_details",
    "fieldtype": "Table",
    "label": "Pattern Details",
-   "options": "Pouring Pattern Details"
+   "options": "Pouring Pattern Details",
+   "reqd": 1
   },
   {
    "fieldname": "casting_details",
    "fieldtype": "Table",
    "label": "Casting Details",
-   "options": "Pouring Casting Details"
+   "options": "Pouring Casting Details",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_azr8",
@@ -256,7 +265,7 @@
   {
    "fieldname": "total_rr_weight",
    "fieldtype": "Float",
-   "label": "Total RR Weight",
+   "label": "Total Runner & Riser Weight",
    "read_only": 1
   },
   {
@@ -309,10 +318,6 @@
    "options": "Pouring Charge Mix Details"
   },
   {
-   "fieldname": "section_break_vlvs",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "total_core_quantity",
    "fieldtype": "Float",
    "label": "Total Core Quantity",
@@ -327,7 +332,8 @@
   {
    "fieldname": "total_moulding_sand_quantity",
    "fieldtype": "Float",
-   "label": "Total Moulding Sand Quantity"
+   "label": "Total Moulding Sand Quantity",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_zlrf",
@@ -404,12 +410,59 @@
    "fieldtype": "Table",
    "label": "Additional Cost Details",
    "options": "Pouring Additional Cost Details"
+  },
+  {
+   "depends_on": "is_sales_order_applicable",
+   "fieldname": "sales_order",
+   "fieldtype": "Table MultiSelect",
+   "label": "Sales Order",
+   "options": "Pouring Sales Order"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_sales_order_applicable",
+   "fieldtype": "Check",
+   "label": "Is Sales Order Applicable"
+  },
+  {
+   "fieldname": "section_break_ftor",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ladle_details",
+   "fieldtype": "Table",
+   "label": "Ladle Details",
+   "options": "Pouring Ladle Details"
+  },
+  {
+   "fieldname": "lab_readings",
+   "fieldtype": "Table",
+   "label": "Lab Readings",
+   "options": "Pouring Lab Readings"
+  },
+  {
+   "fieldname": "retained_items_details",
+   "fieldtype": "Table",
+   "label": "Retained Items Details",
+   "options": "Pouring Retained Items Details"
+  },
+  {
+   "fieldname": "additional_consumable_details",
+   "fieldtype": "Table",
+   "label": "Additional Consumable Details",
+   "options": "Pouring Additional Consumable Details"
+  },
+  {
+   "fieldname": "total_additional_consumable_quantity",
+   "fieldtype": "Float",
+   "label": "Total Additional Consumable Quantity",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-11 15:51:22.860723",
+ "modified": "2024-09-18 14:03:42.699284",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pouring",

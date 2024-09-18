@@ -9,7 +9,7 @@
 
 frappe.ui.form.on('Foundry Filter Setting DocType', {
     setup: function (frm) {
-        frappe.custom.set_filters_for_doctype(frm.doctype, frm);
+        // frappe.custom.set_filters_for_doctype(frm.doctype, frm);
         
     },
 });

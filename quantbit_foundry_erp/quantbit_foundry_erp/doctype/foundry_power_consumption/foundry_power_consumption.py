@@ -12,4 +12,3 @@ class FoundryPowerConsumption(Document):
 		for i in range(len(eachpcd)-1):
 			eachpcd[i].to_date = eachpcd[i+1].from_date
 		eachpcd[-1].to_date = "2100-01-01"
-		

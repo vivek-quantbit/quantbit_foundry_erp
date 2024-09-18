@@ -10,8 +10,7 @@
   "column_break_zrtz",
   "expense_head_account",
   "amount",
-  "is_electricity_expense",
-  "is_labour_charges"
+  "additional_cost_type"
  ],
  "fields": [
   {
@@ -40,22 +39,17 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "0",
-   "fieldname": "is_electricity_expense",
-   "fieldtype": "Check",
-   "label": "Is Electricity Expense"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_labour_charges",
-   "fieldtype": "Check",
-   "label": "Is Labour Charges"
+   "fieldname": "additional_cost_type",
+   "fieldtype": "Link",
+   "label": "Additional Cost Type",
+   "options": "Foundry Additional Cost Type",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-11 18:40:56.034983",
+ "modified": "2024-09-13 16:55:43.054243",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pouring Additional Cost Details",

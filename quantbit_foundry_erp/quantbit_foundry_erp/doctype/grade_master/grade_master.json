@@ -11,14 +11,7 @@
   "grade_type",
   "grade_items_details",
   "default_item_setting_tab",
-  "scrap_item_code",
-  "heal_item_code",
-  "column_break_s2dj",
-  "scrap_item_name",
-  "heal_item_name",
-  "column_break_up1v",
-  "scrap_t_warehouse",
-  "heal_t_warehouse"
+  "retained_items_details"
  ],
  "fields": [
   {
@@ -50,61 +43,15 @@
    "label": "Default Item Setting"
   },
   {
-   "fieldname": "scrap_item_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Scrap Item Code",
-   "options": "Item",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_s2dj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "scrap_item_code.item_name",
-   "fieldname": "scrap_item_name",
-   "fieldtype": "Data",
-   "label": "Scrap Item Name"
-  },
-  {
-   "fieldname": "column_break_up1v",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "scrap_t_warehouse",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Default Scrap Target Warehouse",
-   "options": "Warehouse",
-   "reqd": 1
-  },
-  {
-   "fieldname": "heal_item_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Heal Item Code",
-   "options": "Item",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "heal_item_code.item_name",
-   "fieldname": "heal_item_name",
-   "fieldtype": "Data",
-   "label": "Heal Item Name"
-  },
-  {
-   "fieldname": "heal_t_warehouse",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Default Heal Target Warehouse",
-   "options": "Warehouse",
-   "reqd": 1
+   "fieldname": "retained_items_details",
+   "fieldtype": "Table",
+   "label": "Retained Items Details",
+   "options": "Grade Master Retained Items Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-11 15:51:22.053045",
+ "modified": "2024-09-16 15:52:00.200830",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Grade Master",

@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestFoundryPowerConsumption(FrappeTestCase):
+class TestFoundryAdditionalCostType(FrappeTestCase):
 	pass

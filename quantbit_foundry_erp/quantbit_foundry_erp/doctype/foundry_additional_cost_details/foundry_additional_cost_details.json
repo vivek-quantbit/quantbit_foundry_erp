@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-09-11 15:01:34.499843",
+ "creation": "2024-09-13 11:34:05.165760",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -10,7 +10,9 @@
   "column_break_s8wlr",
   "to_date",
   "column_break_a0gsv",
-  "amount_per_unit"
+  "wise",
+  "column_break_h5o0",
+  "amount"
  ],
  "fields": [
   {
@@ -36,20 +38,32 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "amount_per_unit",
+   "fieldname": "wise",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Wise Per",
+   "options": "\nUnit\nHour\nWeight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_h5o0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Amount Per Unit",
+   "label": "Amount",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-11 15:02:32.518693",
+ "modified": "2024-09-13 11:41:34.137075",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
- "name": "Foundry Power Consumption Details",
+ "name": "Foundry Additional Cost Details",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

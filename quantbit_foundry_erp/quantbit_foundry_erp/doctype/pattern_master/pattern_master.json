@@ -9,6 +9,8 @@
   "pattern_details_tab",
   "naming_series",
   "company",
+  "column_break_pcxg",
+  "is_enable",
   "pattern_details_section",
   "pattern_item_code",
   "drawing_number",
@@ -39,10 +41,10 @@
   "pattern_maintenance_break",
   "pouring_details_tab",
   "pattern_master_casting_material_details",
-  "moulding_details_tab",
-  "pattern_master_moulding_sand_details",
-  "core_details_tab",
+  "consumables_details_tab",
   "pattern_master_core_material_details",
+  "pattern_master_moulding_sand_details",
+  "pattern_master_additional_consumable_details",
   "casting_treatment_details_tab",
   "pattern_master_casting_treatment_details"
  ],
@@ -56,16 +58,6 @@
    "fieldname": "pouring_details_tab",
    "fieldtype": "Tab Break",
    "label": "Pouring Details"
-  },
-  {
-   "fieldname": "moulding_details_tab",
-   "fieldtype": "Tab Break",
-   "label": "Moulding Details"
-  },
-  {
-   "fieldname": "core_details_tab",
-   "fieldtype": "Tab Break",
-   "label": "Core Details"
   },
   {
    "fieldname": "casting_treatment_details_tab",
@@ -216,6 +208,7 @@
    "options": "Pattern Master Casting Treatment Details"
   },
   {
+   "description": "In Kg",
    "fieldname": "box_weight",
    "fieldtype": "Float",
    "label": "Total Box Weight",
@@ -237,6 +230,7 @@
    "reqd": 1
   },
   {
+   "description": "In kg",
    "fieldname": "rr_weight",
    "fieldtype": "Float",
    "label": "Runner & Riser Weight(Per Box)",
@@ -255,15 +249,38 @@
    "fieldtype": "Column Break"
   },
   {
+   "description": "In kg",
    "fieldname": "casting_weight",
    "fieldtype": "Float",
    "label": "Total Casting Weight(Per Box)",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pcxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_enable",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Enable"
+  },
+  {
+   "fieldname": "consumables_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Consumables Details"
+  },
+  {
+   "fieldname": "pattern_master_additional_consumable_details",
+   "fieldtype": "Table",
+   "label": "Pattern Master Additional Consumable Details",
+   "options": "Pattern Master Additional Consumable Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-11 15:51:22.294942",
+ "modified": "2024-09-18 12:49:17.999713",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pattern Master",

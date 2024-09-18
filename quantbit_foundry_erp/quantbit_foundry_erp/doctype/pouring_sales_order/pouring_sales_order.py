@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class FoundryPowerConsumptionDetails(Document):
+class PouringSalesOrder(Document):
 	pass
