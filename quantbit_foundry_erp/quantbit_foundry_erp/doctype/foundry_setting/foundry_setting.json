@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:company",
+ "creation": "2024-09-06 16:27:48.402864",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "foundry_default_settings_section",
+  "company",
+  "pouring_default_settings_section",
+  "ft_warehouse",
+  "ms_warehouse",
+  "acs_warehouse",
+  "column_break_pfgu",
+  "cms_warehouse",
+  "st_warehouse",
+  "exceed_limit",
+  "column_break_amcj",
+  "cs_warehouse",
+  "ht_warehouse"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "unique": 1
+  },
+  {
+   "fieldname": "foundry_default_settings_section",
+   "fieldtype": "Tab Break",
+   "label": "Foundry Default Settings"
+  },
+  {
+   "fieldname": "pouring_default_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Pouring Default Settings"
+  },
+  {
+   "fieldname": "ft_warehouse",
+   "fieldtype": "Link",
+   "label": "Finished Items Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "column_break_pfgu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cms_warehouse",
+   "fieldtype": "Link",
+   "label": "Charge Mix Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "description": "Please enter limit in Percentage for Exceed limit of Charge Mix",
+   "fieldname": "exceed_limit",
+   "fieldtype": "Float",
+   "label": "Charge Mix Exceed Limit"
+  },
+  {
+   "fieldname": "column_break_amcj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cs_warehouse",
+   "fieldtype": "Link",
+   "label": "Core Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "ms_warehouse",
+   "fieldtype": "Link",
+   "label": "Mould Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "st_warehouse",
+   "fieldtype": "Link",
+   "label": "Scrap Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "ht_warehouse",
+   "fieldtype": "Link",
+   "label": "Heal Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "acs_warehouse",
+   "fieldtype": "Link",
+   "label": "Additional Consumable Source Warehouse",
+   "options": "Warehouse"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-18 13:58:59.727714",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Foundry Setting",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

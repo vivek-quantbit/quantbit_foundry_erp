@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-09 10:12:08.257080",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cavity_type",
+  "column_break_ya4b",
+  "quantity_per_box"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_ya4b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity_per_box",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity Per Box",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "cavity_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Cavity Type",
+   "options": "\nCavity 1\nCavity 2\nCavity 3\nCavity 4\nCavity 5\nCavity 6\nCavity 7\nCavity 8\nCavity 9\nCavity 10"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-09 12:21:08.963215",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Pattern Master Cavity Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,18 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{doctype_name}-{docchild_name}-{docfield_name}",
+ "autoname": "field:doctype_name",
  "creation": "2024-08-31 09:42:14.962986",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "doctype_name",
-  "column_break_uoirv",
-  "docchild_name",
-  "column_break_ucfaz",
-  "docfield_name",
-  "column_break_uwsb",
-  "doclink_name",
   "section_break_vwky",
   "foundry_filter_setting_doctype_details"
  ],
@@ -23,28 +17,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "DocType Name",
-   "options": "DocType"
-  },
-  {
-   "fieldname": "column_break_uoirv",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "docchild_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "DocChild Name"
-  },
-  {
-   "fieldname": "column_break_ucfaz",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "docfield_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "DocField Name"
+   "options": "DocType",
+   "unique": 1
   },
   {
    "fieldname": "section_break_vwky",
@@ -55,26 +29,15 @@
    "fieldtype": "Table",
    "label": "Foundry Filter Setting DocType Details",
    "options": "Foundry Filter Setting DocType Details"
-  },
-  {
-   "fieldname": "column_break_uwsb",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "doclink_name",
-   "fieldtype": "Link",
-   "in_standard_filter": 1,
-   "label": "DocLink Name",
-   "options": "DocType"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-01 09:32:31.610375",
+ "modified": "2024-09-12 09:54:29.200601",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Foundry Filter Setting DocType",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -92,5 +55,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

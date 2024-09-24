@@ -192,8 +192,7 @@
    "fieldname": "total_qty",
    "fieldtype": "Float",
    "label": "Total Qty",
-   "precision": "2",
-   "read_only": 1
+   "precision": "2"
   },
   {
    "fieldname": "column_break_tozrs",
@@ -203,8 +202,7 @@
    "fieldname": "total_amount",
    "fieldtype": "Float",
    "label": "Total Amount",
-   "precision": "2",
-   "read_only": 1
+   "precision": "2"
   },
   {
    "fieldname": "sales_taxes_and_charges_section",
@@ -424,7 +422,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-31 13:03:22.770666",
+ "modified": "2024-09-11 15:51:21.178110",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Open Order",
@@ -447,5 +445,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

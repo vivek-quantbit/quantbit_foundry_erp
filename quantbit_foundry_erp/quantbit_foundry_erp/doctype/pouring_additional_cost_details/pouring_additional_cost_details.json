@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-11 14:52:20.146459",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "discription",
+  "column_break_zrtz",
+  "expense_head_account",
+  "amount",
+  "additional_cost_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "discription",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Discription"
+  },
+  {
+   "fieldname": "expense_head_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Expense Head / Account ",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zrtz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "additional_cost_type",
+   "fieldtype": "Link",
+   "label": "Additional Cost Type",
+   "options": "Foundry Additional Cost Type",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-13 16:55:43.054243",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Pouring Additional Cost Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

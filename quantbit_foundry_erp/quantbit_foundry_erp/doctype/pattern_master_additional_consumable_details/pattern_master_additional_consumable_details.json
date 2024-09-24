@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-18 12:45:59.001267",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "consumable_item_code",
+  "column_break_3zxs",
+  "consumable_item_name",
+  "column_break_ekw9",
+  "uom",
+  "column_break_8gbt",
+  "quantity"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_3zxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ekw9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "consumable_item_code.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_8gbt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Quantity Per Unit Pattern",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "consumable_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Consumable Item Code",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "consumable_item_code.item_name",
+   "fieldname": "consumable_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Consumable Item Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-18 12:58:59.190512",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Pattern Master Additional Consumable Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

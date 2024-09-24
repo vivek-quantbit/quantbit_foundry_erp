@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-16 15:45:33.650537",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "retained_item_code",
+  "column_break_ytmlb",
+  "retained_item_name",
+  "column_break_dli4q",
+  "is_scrap_item",
+  "is_heal_metal"
+ ],
+ "fields": [
+  {
+   "fieldname": "retained_item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Retained Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ytmlb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "retained_item_code.item_name",
+   "fieldname": "retained_item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Retained Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dli4q",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.is_heal_metal == 0;",
+   "description": "This item will be used as scrap item for this grade",
+   "fieldname": "is_scrap_item",
+   "fieldtype": "Check",
+   "label": "Is Scrap Item",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.is_scrap_item == 0;",
+   "description": "This item will be used as heal item for this grade",
+   "fieldname": "is_heal_metal",
+   "fieldtype": "Check",
+   "label": "Is Heal Metal"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-17 10:52:26.038751",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Grade Master Retained Items Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

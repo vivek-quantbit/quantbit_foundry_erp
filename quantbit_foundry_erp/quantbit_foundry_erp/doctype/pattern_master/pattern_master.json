@@ -9,18 +9,28 @@
   "pattern_details_tab",
   "naming_series",
   "company",
+  "column_break_pcxg",
+  "is_enable",
   "pattern_details_section",
   "pattern_item_code",
   "drawing_number",
   "column_break_9snq",
   "pattern_grade_type",
   "pattern_grade",
-  "column_break_wgaw",
+  "column_break_p3es",
   "pattern_owner_type",
   "match_plate_size",
-  "column_break_p3es",
-  "customer_name",
+  "column_break_smht",
   "customer_code",
+  "customer_name",
+  "section_break_qdlg",
+  "box_weight",
+  "column_break_nkuq",
+  "casting_weight",
+  "column_break_jtns",
+  "rr_weight",
+  "section_break_sb7p",
+  "pattern_master_cavity_details",
   "pattern_life_section",
   "pattern_life",
   "column_break_yqko",
@@ -31,10 +41,10 @@
   "pattern_maintenance_break",
   "pouring_details_tab",
   "pattern_master_casting_material_details",
-  "moulding_details_tab",
-  "pattern_master_moulding_sand_details",
-  "core_details_tab",
+  "consumables_details_tab",
   "pattern_master_core_material_details",
+  "pattern_master_moulding_sand_details",
+  "pattern_master_additional_consumable_details",
   "casting_treatment_details_tab",
   "pattern_master_casting_treatment_details"
  ],
@@ -48,16 +58,6 @@
    "fieldname": "pouring_details_tab",
    "fieldtype": "Tab Break",
    "label": "Pouring Details"
-  },
-  {
-   "fieldname": "moulding_details_tab",
-   "fieldtype": "Tab Break",
-   "label": "Moulding Details"
-  },
-  {
-   "fieldname": "core_details_tab",
-   "fieldtype": "Tab Break",
-   "label": "Core Details"
   },
   {
    "fieldname": "casting_treatment_details_tab",
@@ -136,10 +136,6 @@
    "options": "Grade Type"
   },
   {
-   "fieldname": "column_break_wgaw",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "match_plate_size",
    "fieldtype": "Link",
    "label": "Match Plate Size",
@@ -210,11 +206,81 @@
    "fieldtype": "Table",
    "label": "Pattern Master Casting Treatment Details",
    "options": "Pattern Master Casting Treatment Details"
+  },
+  {
+   "description": "In Kg",
+   "fieldname": "box_weight",
+   "fieldtype": "Float",
+   "label": "Total Box Weight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_smht",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_sb7p",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pattern_master_cavity_details",
+   "fieldtype": "Table",
+   "label": "Pattern Master Cavity Details",
+   "options": "Pattern Master Cavity Details",
+   "reqd": 1
+  },
+  {
+   "description": "In kg",
+   "fieldname": "rr_weight",
+   "fieldtype": "Float",
+   "label": "Runner & Riser Weight(Per Box)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_qdlg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nkuq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jtns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "In kg",
+   "fieldname": "casting_weight",
+   "fieldtype": "Float",
+   "label": "Total Casting Weight(Per Box)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pcxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_enable",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Enable"
+  },
+  {
+   "fieldname": "consumables_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Consumables Details"
+  },
+  {
+   "fieldname": "pattern_master_additional_consumable_details",
+   "fieldtype": "Table",
+   "label": "Pattern Master Additional Consumable Details",
+   "options": "Pattern Master Additional Consumable Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-01 22:35:56.293354",
+ "modified": "2024-09-18 12:49:17.999713",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pattern Master",

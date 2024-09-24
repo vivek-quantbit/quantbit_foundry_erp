@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:ladle_name",
+ "creation": "2024-09-12 14:45:50.917784",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ladle_name",
+  "column_break_grea",
+  "ladle_capacity"
+ ],
+ "fields": [
+  {
+   "fieldname": "ladle_name",
+   "fieldtype": "Data",
+   "label": "Ladle Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_grea",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ladle_capacity",
+   "fieldtype": "Float",
+   "label": "Ladle Capacity (in KG)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-12 14:48:59.611546",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Ladle Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

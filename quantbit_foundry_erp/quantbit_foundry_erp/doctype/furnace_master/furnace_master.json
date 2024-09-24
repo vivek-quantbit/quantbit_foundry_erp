@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:furnece_name",
+ "creation": "2024-09-06 11:28:26.546164",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "furnece_name",
+  "furnace_type",
+  "average_pouring_time",
+  "column_break_mnewk",
+  "furnace_capacity",
+  "company"
+ ],
+ "fields": [
+  {
+   "fieldname": "furnece_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Furnace Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "furnace_type",
+   "fieldtype": "Select",
+   "label": "Furnace Type",
+   "options": "\nInduction Furnaces\nElectric Arc Furnaces (EAF)\nCupola Furnaces\nOil Fired Furnaces",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mnewk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "furnace_capacity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Furnace Capacity ( in KG)",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "description": "(in Min)",
+   "fieldname": "average_pouring_time",
+   "fieldtype": "Data",
+   "label": "Average Pouring Time",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-19 16:58:43.475061",
+ "modified_by": "Administrator",
+ "module": "Quantbit Foundry ERP",
+ "name": "Furnace Master",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
