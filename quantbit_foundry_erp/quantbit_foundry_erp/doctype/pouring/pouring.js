@@ -22,7 +22,13 @@ frappe.ui.form.on('Pouring', {
     setup: function (frm) {
         frappe.custom.set_filters_for_doctype(frm.doctype, frm);
     },
-    is_sales_order_applicable: function (frm) {
+    company: function (frm) {
+        frappe.custom.set_filters_for_doctype(frm.doctype, frm);
+    },
+    grade_type: function (frm) {
+        frappe.custom.set_filters_for_doctype(frm.doctype, frm);
+    },
+    grade: function (frm) {
         frappe.custom.set_filters_for_doctype(frm.doctype, frm);
     },
     pattern_details_remove: function (frm) {
@@ -40,8 +46,6 @@ frappe.ui.form.on('Pouring', {
     initial_power_reading: function (frm) {
         method_call(frm,'Calculating_General_Details')
     },
-
-    
 });
 
 frappe.ui.form.on('Pouring Pattern Details', {
@@ -110,6 +114,15 @@ frappe.ui.form.on('Pouring Additional Consumable Details', {
     },
     used_quantity: function (frm) {
         method_call(frm,'Calculating_additional_consumable_details')
+    },
+});
+
+frappe.ui.form.on('Pouring Retained Items Details', {
+    retained_item_code: function (frm) {
+        method_call(frm,'Calculating_retained_items_details')
+    },
+    quantity: function (frm) {
+        method_call(frm,'Calculating_retained_items_details')
     },
 });
 

@@ -87,7 +87,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Target Warehouse",
-   "options": "Warehouse"
+   "options": "Warehouse",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_foum",
@@ -160,7 +161,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-10 11:14:25.695578",
+ "modified": "2024-09-20 17:03:58.272621",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pouring Casting Details",

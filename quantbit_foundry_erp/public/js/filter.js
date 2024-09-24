@@ -46,8 +46,6 @@ async function get_filter_list(frm, filters_parent, docchild_name , docfield_nam
             }
             let filter = [item.doclink_name, item.filterfield_name, item.filterfield_type, filter_arg];
             filter_list.push(filter)
-            console.log(filter)
-
         }
     });
     return filter_list;

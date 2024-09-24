@@ -8,8 +8,10 @@
  "field_order": [
   "furnece_name",
   "furnace_type",
+  "average_pouring_time",
   "column_break_mnewk",
-  "furnace_capacity"
+  "furnace_capacity",
+  "company"
  ],
  "fields": [
   {
@@ -38,11 +40,25 @@
    "label": "Furnace Capacity ( in KG)",
    "precision": "2",
    "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "description": "(in Min)",
+   "fieldname": "average_pouring_time",
+   "fieldtype": "Data",
+   "label": "Average Pouring Time",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-11 15:51:19.780991",
+ "modified": "2024-09-19 16:58:43.475061",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Furnace Master",

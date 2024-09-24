@@ -27,14 +27,22 @@
   "moulding_contractor_name",
   "pouring_details_tab",
   "furnace",
-  "is_sales_order_applicable",
-  "sales_order",
+  "grade",
   "column_break_knid",
   "furnace_capacity",
-  "column_break_azr8",
   "grade_type",
-  "column_break_jcqf",
-  "grade",
+  "section_break_zlrf",
+  "tapping_temperature",
+  "pouring_temperature",
+  "column_break_aqgx",
+  "heat_start_time",
+  "initial_power_reading",
+  "column_break_rznc",
+  "heat_end_time",
+  "final_power_reading",
+  "column_break_jhop",
+  "total_heat_time",
+  "total_power_consumed",
   "section_break_yjyb",
   "pattern_details",
   "casting_details",
@@ -46,26 +54,18 @@
   "total_rr_weight",
   "column_break_gamu",
   "total_pouring_weight",
-  "section_break_zlrf",
-  "heat_start_time",
-  "initial_power_reading",
-  "column_break_rznc",
-  "heat_end_time",
-  "final_power_reading",
-  "column_break_jhop",
-  "total_heat_time",
-  "total_power_consumed",
-  "section_break_dfwt",
-  "tapping_temperature",
-  "column_break_rokf",
-  "pouring_temperature",
   "section_break_ftor",
   "ladle_details",
   "lab_readings",
   "charge_mix_details_tab",
   "charge_mix_details",
+  "section_break_gpyp",
   "total_consumed_weight",
+  "column_break_dyzh",
+  "total_normal_loss",
+  "section_break_vehj",
   "retained_items_details",
+  "total_retained_items_weight",
   "consumables_details_tab",
   "core_details",
   "total_core_quantity",
@@ -107,13 +107,15 @@
    "default": "Today",
    "fieldname": "heat_date",
    "fieldtype": "Date",
-   "label": "Heat Date"
+   "label": "Heat Date",
+   "no_copy": 1
   },
   {
    "default": "Now",
    "fieldname": "posting_time",
    "fieldtype": "Time",
    "label": "Heat Time",
+   "no_copy": 1,
    "read_only": 1
   },
   {
@@ -161,7 +163,8 @@
   {
    "fieldname": "heat_number",
    "fieldtype": "Data",
-   "label": "Heat Number"
+   "label": "Heat Number",
+   "no_copy": 1
   },
   {
    "fieldname": "column_break_qqdg",
@@ -213,32 +216,28 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_azr8",
-   "fieldtype": "Column Break"
-  },
-  {
+   "fetch_from": "grade.grade_type",
    "fieldname": "grade_type",
    "fieldtype": "Link",
    "label": "Grade Type",
    "options": "Grade Type",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_jcqf",
-   "fieldtype": "Column Break"
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "grade",
    "fieldtype": "Link",
    "label": "Grade",
    "options": "Grade Master",
-   "read_only": 1
+   "reqd": 1
   },
   {
+   "depends_on": "grade",
    "fieldname": "section_break_yjyb",
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "grade",
    "fieldname": "section_break_urrs",
    "fieldtype": "Section Break"
   },
@@ -336,13 +335,16 @@
    "read_only": 1
   },
   {
+   "depends_on": "grade",
    "fieldname": "section_break_zlrf",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "heat_start_time",
    "fieldtype": "Time",
-   "label": "Heat Start Time"
+   "label": "Heat Start Time",
+   "no_copy": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_rznc",
@@ -351,7 +353,9 @@
   {
    "fieldname": "heat_end_time",
    "fieldtype": "Time",
-   "label": "Heat End Time"
+   "label": "Heat End Time",
+   "no_copy": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_jhop",
@@ -362,6 +366,7 @@
    "fieldname": "total_heat_time",
    "fieldtype": "Time",
    "label": "Total Heat Time",
+   "no_copy": 1,
    "read_only": 1
   },
   {
@@ -383,17 +388,9 @@
    "read_only": 1
   },
   {
-   "fieldname": "section_break_dfwt",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "tapping_temperature",
    "fieldtype": "Float",
    "label": "Tapping Temperature ( \u00b0C)"
-  },
-  {
-   "fieldname": "column_break_rokf",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "pouring_temperature",
@@ -412,19 +409,7 @@
    "options": "Pouring Additional Cost Details"
   },
   {
-   "depends_on": "is_sales_order_applicable",
-   "fieldname": "sales_order",
-   "fieldtype": "Table MultiSelect",
-   "label": "Sales Order",
-   "options": "Pouring Sales Order"
-  },
-  {
-   "default": "0",
-   "fieldname": "is_sales_order_applicable",
-   "fieldtype": "Check",
-   "label": "Is Sales Order Applicable"
-  },
-  {
+   "depends_on": "grade",
    "fieldname": "section_break_ftor",
    "fieldtype": "Section Break"
   },
@@ -457,12 +442,46 @@
    "fieldtype": "Float",
    "label": "Total Additional Consumable Quantity",
    "read_only": 1
+  },
+  {
+   "fieldname": "total_retained_items_weight",
+   "fieldtype": "Float",
+   "label": "Total Retained Items Weight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_gpyp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_dyzh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_normal_loss",
+   "fieldtype": "Float",
+   "label": "Total Normal Loss",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_vehj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_aqgx",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-09-18 14:03:42.699284",
+ "links": [
+  {
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "custom_pouring"
+  }
+ ],
+ "modified": "2024-09-23 18:47:41.540796",
  "modified_by": "Administrator",
  "module": "Quantbit Foundry ERP",
  "name": "Pouring",

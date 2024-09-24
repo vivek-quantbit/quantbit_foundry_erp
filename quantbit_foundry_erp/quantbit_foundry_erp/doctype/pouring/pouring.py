@@ -12,6 +12,24 @@ def getVal(val):
 def ItemName(item_code):
 	return frappe.get_value('Item', item_code , 'item_name')
 
+def CreateStockEntry(company,stock_entry_type,items_list,additional_costs_list,reference_field , reference ,posting_date,posting_time ='00:00:01'):
+	stock_entry = frappe.get_doc(
+									{
+										'doctype': 'Stock Entry',
+										'company' : company ,
+										'stock_entry_type' : stock_entry_type,
+										'set_posting_time' : True ,
+										'posting_date' : posting_date ,
+										'posting_time' : posting_time ,
+										'items' : items_list ,
+										'additional_costs' : additional_costs_list ,
+										reference_field : reference,
+										
+									}
+								)
+	stock_entry.save()
+	stock_entry.submit()
+
 class Pouring(Document):
 	def foundry_setting(self,field):
 		return frappe.get_value('Foundry Setting', self.company , field)
@@ -29,6 +47,23 @@ class Pouring(Document):
 				field_lable = frappe.get_value("DocField" ,{'parent': 'Pouring' , 'fieldname':d},'label')
 				frappe.throw(f'Field "{field_lable}" is Mandatory')
 
+	def Set_Data_In_Table(self ,table ,data_in , data_check = None):
+		if not data_check:
+			data_check = data_in
+
+		table_data_check = self.get(table , filters= data_check)
+		if not table_data_check:
+			self.append(table,data_in)
+
+	def Create_Pouring_Stock_Entry(self , stock_entry_type , items_list ,additional_costs_list = []):
+		CreateStockEntry(	company = self.company ,
+							stock_entry_type = stock_entry_type,
+							items_list = items_list,
+							reference_field = 'custom_pouring',
+							reference = self.name,
+							additional_costs_list = additional_costs_list,
+							posting_date = self.heat_date)
+
 	def validate(self):
 		self.Validate_Casting_Details()
 		self.Validate_Charge_Mix()
@@ -36,10 +71,12 @@ class Pouring(Document):
 	def before_save(self):
 		self.Calculating_General_Details()
 		self.set_amount_in_additional_cost_details()
-		
 
 	def before_submit(self):
-		pass
+		self.Create_Manufacturing_Stock_Entry()
+		self.Create_Retain_Manufacturing_Stock_Entry()
+		self.Create_Normal_Loss_Material_Issue_Stock_Entry()
+
 
 	@frappe.whitelist()
 	def Calculating_General_Details(self):
@@ -49,7 +86,7 @@ class Pouring(Document):
 			self.total_power_consumed = self.final_power_reading - self.initial_power_reading
 		if getVal(self.total_power_consumed) < 0:
 			frappe.throw(title ="Power Reading Validation" , msg = f"'Total Power Consumption' Should not be negative")
-			
+
 	@frappe.whitelist()
 	def get_casting_details_from_pattern(self):
 		self.Validate_Mandatory_Fields(['company' , 'furnace'])
@@ -76,10 +113,7 @@ class Pouring(Document):
 								'target_warehouse': self.foundry_setting('ft_warehouse'),
 								'reference':d.name
 							}
-
-				data_check = self.get('casting_details' , filters= data_in)
-				if not data_check:
-					self.append("casting_details",data_in)
+				self.Set_Data_In_Table('casting_details', data_in)
 
 			if pattern_casting_details.pattern_grade_type and pattern_casting_details.pattern_grade:
 				self.grade_type = pattern_casting_details.pattern_grade_type
@@ -123,15 +157,14 @@ class Pouring(Document):
 					a.quantity = getVal(quantity_per_box) * p.poured_boxes
 
 				cavity_type_list.append(cavity_type)	
-			
+
 			cd = self.get('casting_details' , filters = {'pattern_code': p.pattern_code, 'check': 0})
 			for d in cd:
 				d.quantity = d.total_rr_weight = d.total_weight = 0
 
 		self.Calculating_Casting_Details()
 		self.set_quantity_in_charge_mix_details()
-			
-		
+
 	def Validate_Casting_Details(self):
 		pattern_details = self.get("pattern_details", filters = {'pattern_code':['!=', None] , 'poured_boxes': ['not in', [None , 0]]})
 		for p in pattern_details:
@@ -152,35 +185,39 @@ class Pouring(Document):
 					total_quantity += j.quantity
 				if max_qty < total_quantity:
 					frappe.throw(f'The maximum combine quantity you can set of items {i.item_list} of pattern code {p.pattern_code} is {max_qty}, you are entering {total_quantity} combine quantity')
-						
+		
+		all_casting = getVal(self.total_casting_weight) + getVal(self.total_retained_items_weight)
+		if all_casting > getVal(self.total_consumed_weight):
+			frappe.throw(f'Total Consumed Weight should ({self.total_consumed_weight}) not be greater than sum of "Total Pouring Weight" and "Total Retained Items Weight" ({all_casting})')
+		
+		self.total_normal_loss = self.total_consumed_weight - all_casting
+
 
 	def set_quantity_in_charge_mix_details(self):
-		if self.furnace and self.grade:
-			grade_items_details = frappe.get_all("Grade Items Details", 
-														filters = {"parent": self.grade},
-														fields = ["item_code","percentage"] , order_by='idx ASC')
-			source_warehouse =  self.foundry_setting('cms_warehouse')
-			for d in grade_items_details :
-					required_quantity = (d.percentage * self.furnace_capacity)/100
+		self.Validate_Mandatory_Fields(['furnace' , 'grade'])
+		grade_items_details = frappe.get_all("Grade Items Details", 
+													filters = {"parent": self.grade},
+													fields = ["item_code","percentage"] , order_by='idx ASC')
+		source_warehouse =  self.foundry_setting('cms_warehouse')
+		for d in grade_items_details :
+				required_quantity = (d.percentage * self.furnace_capacity)/100
 
-					data_in = 	{
-									'raw_item_code': d.item_code,
-									'raw_item_name': ItemName(d.item_code),
-									'required_quantity': required_quantity,
-								}
+				data_in = 	{
+								'raw_item_code': d.item_code,
+								'raw_item_name': ItemName(d.item_code),
+								'required_quantity': required_quantity,
+								'source_warehouse': source_warehouse,
+								'available_stock': stock_balance(d.item_code,source_warehouse,self.heat_date) if (source_warehouse and d.item_code) else None,
+							}
+				data_check = {
+								'raw_item_code': d.item_code,
+								'raw_item_name': ItemName(d.item_code),
+								'required_quantity': required_quantity,
+							}
 
-					data_check = self.get('charge_mix_details' , filters= data_in)
-					if not data_check:
-						self.append("charge_mix_details",	{
-															'raw_item_code': d.item_code,
-															'raw_item_name': ItemName(d.item_code),
-															'required_quantity': required_quantity,
-															'source_warehouse': source_warehouse,
-															'available_stock': stock_balance(d.item_code,source_warehouse,self.heat_date) if (source_warehouse and d.item_code) else None,
-														})
-		else:
-			frappe.throw(title ="Furnace & Grade Validation" , msg = f"Furnace and grade are must for entry")
-	
+				self.Set_Data_In_Table('charge_mix_details', data_in , data_check)
+
+
 	@frappe.whitelist()
 	def Calculating_Charge_Mix(self):
 		self.total_consumed_weight = self.calculate_total('charge_mix_details', 'used_quantity')
@@ -211,22 +248,22 @@ class Pouring(Document):
 									'pattern_code': p.pattern_code,
 									'casting_item_code': a.casting_item_code,
 									'core_item_code': d.core_item_code,
+									'core_item_name': ItemName(d.core_item_code),
+									'uom': d.uom,
 									'required_quantity': required_quantity,
+									'used_quantity':required_quantity,
+									'source_warehouse': source_warehouse,
+									'available_stock': stock_balance(d.core_item_code , source_warehouse , self.heat_date) if (source_warehouse and d.core_item_code) else None,
 								}
 
-					data_check = self.get('core_details' , filters= data_in)
-					if not data_check:
-						self.append("core_details",	{
-															'pattern_code': p.pattern_code,
-															'casting_item_code': a.casting_item_code,
-															'core_item_code': d.core_item_code,
-															'core_item_name': ItemName(d.core_item_code),
-															'uom': d.uom,
-															'required_quantity': required_quantity,
-															'used_quantity':required_quantity,
-															'source_warehouse': source_warehouse,
-															'available_stock': stock_balance(d.core_item_code , source_warehouse , self.heat_date) if (source_warehouse and d.core_item_code) else None,
-														})
+					data_check = {
+									'pattern_code': p.pattern_code,
+									'casting_item_code': a.casting_item_code,
+									'core_item_code': d.core_item_code,
+									'required_quantity': required_quantity,
+								}
+					self.Set_Data_In_Table('core_details', data_in , data_check)
+
 		self.Calculating_Core_Details()
 
 	@frappe.whitelist()
@@ -242,14 +279,8 @@ class Pouring(Document):
 													fields = ["sand_item_code" , 'uom' , 'quantity'] , order_by='idx ASC')
 			for d in moulding_sand_details :
 				required_quantity = d.quantity * p.poured_boxes
-				data_in = 	{
-								'pattern_code': p.pattern_code,
-								'sand_item_code': d.sand_item_code,
-							}
-
-				data_check = self.get('moulding_sand_details' , filters= data_in)
-				if not data_check:
-					self.append("moulding_sand_details",	{
+				
+				data_in = {
 													'pattern_code': p.pattern_code,
 													'sand_item_code': d.sand_item_code,
 													'sand_item_name': ItemName(d.sand_item_code),
@@ -258,8 +289,14 @@ class Pouring(Document):
 													'used_quantity':required_quantity,
 													'source_warehouse': source_warehouse,
 													'available_stock': stock_balance(d.sand_item_code, source_warehouse , self.heat_date) if (source_warehouse and d.sand_item_code) else None,
-												})
+												}
+				data_check = 	{
+								'pattern_code': p.pattern_code,
+								'sand_item_code': d.sand_item_code,
+							}
 
+				self.Set_Data_In_Table('moulding_sand_details', data_in , data_check)
+				
 		self.Calculating_moulding_sand_details()
 
 	@frappe.whitelist()
@@ -275,14 +312,8 @@ class Pouring(Document):
 													fields = ["consumable_item_code" , 'uom' , 'quantity'] , order_by='idx ASC')
 			for d in additional_consumable_details :
 				required_quantity = d.quantity * p.poured_boxes
+				
 				data_in = 	{
-								'pattern_code': p.pattern_code,
-								'consumable_item_code': d.consumable_item_code,
-							}
-
-				data_check = self.get('additional_consumable_details' , filters= data_in)
-				if not data_check:
-					self.append("additional_consumable_details",	{
 													'pattern_code': p.pattern_code,
 													'consumable_item_code': d.consumable_item_code,
 													'consumable_item_name': ItemName(d.consumable_item_code),
@@ -291,7 +322,13 @@ class Pouring(Document):
 													'used_quantity':required_quantity,
 													'source_warehouse': source_warehouse,
 													'available_stock': stock_balance(d.consumable_item_code, source_warehouse , self.heat_date) if (source_warehouse and d.consumable_item_code) else None,
-												})
+												}
+
+				data_check = {
+								'pattern_code': p.pattern_code,
+								'consumable_item_code': d.consumable_item_code,
+							}
+				self.Set_Data_In_Table('additional_consumable_details', data_in , data_check)
 
 		self.Calculating_additional_consumable_details()
 
@@ -329,24 +366,27 @@ class Pouring(Document):
 												'quantity':quantity
 											})
 
+		self.Calculating_retained_items_details()
+
+	@frappe.whitelist()
+	def Calculating_retained_items_details(self):
+		self.total_retained_items_weight = self.calculate_total('retained_items_details', 'quantity')										
+
 	def set_amount_in_additional_cost_details(self):
 
 		def set_additional_cost(multiply_by , amount_per_unit , expense_head_account ,  additional_cost_type ):
 			amount = getVal(multiply_by) * getVal(amount_per_unit)
 			if amount:
 				data_in = 	{
+								'discription': additional_cost_type,
+								'expense_head_account': expense_head_account,
+								'amount': amount,
 								'additional_cost_type': additional_cost_type,
 							}
-				data_check = self.get('additional_cost_details' , filters= data_in)
-				if data_check:
-					pass
-				else:
-					self.append("additional_cost_details",	{
-																'discription': additional_cost_type,
-																'expense_head_account': expense_head_account,
-																'amount': amount,
-																'additional_cost_type': additional_cost_type,
-															})
+				data_check = {
+								'additional_cost_type': additional_cost_type,
+							}
+				self.Set_Data_In_Table('additional_cost_details', data_in , data_check)
 
 		self.Validate_Mandatory_Fields(['company', 'heat_date'])
 		foundry_additional_cost = frappe.get_all("Foundry Additional Cost", filters = {'company':self.company,'is_enable':1},fields = ["name" , 'expense_head_account' , 'foundry_additional_cost_type'])
@@ -377,3 +417,102 @@ class Pouring(Document):
 		self.Get_Available_Stock('core_details' , 'core_item_code' , 'source_warehouse' , 'available_stock' , self.heat_date)
 		self.Get_Available_Stock('moulding_sand_details' , 'sand_item_code' , 'source_warehouse' , 'available_stock' , self.heat_date)
 		self.Get_Available_Stock('additional_consumable_details' , 'consumable_item_code' , 'source_warehouse' , 'available_stock' , self.heat_date)
+
+
+	def Create_Manufacturing_Stock_Entry(self):
+		self.Validate_Mandatory_Fields(['total_consumed_weight','total_casting_weight'])
+
+		for cd in self.get("casting_details" , filters= {"check":1 , 'quantity':[">", 0]}):
+			items_list , additional_costs_list= [] , []
+			items_list.append({
+							"item_code": cd.casting_item_code,
+							"qty": cd.quantity ,
+							"t_warehouse": cd.target_warehouse,
+							'is_finished_item':True
+						})
+
+			for i in self.get("charge_mix_details" , filters = {"used_quantity" :['>',0]}):
+				items_list.append({ 
+								"item_code": i.raw_item_code,
+								"qty":(cd.total_weight * i.used_quantity) / self.total_consumed_weight,
+								"s_warehouse": i.source_warehouse,
+							})
+
+			for j in self.get("core_details" , filters = {"pattern_code": cd.pattern_code ,"casting_item_code": cd.casting_item_code ,"used_quantity" :['>',0]}):
+					items_list.append({
+								"item_code": j.core_item_code,
+								"qty":j.used_quantity,
+								"s_warehouse": j.source_warehouse,
+							})
+
+			for k in self.get("moulding_sand_details", filters = {"pattern_code": cd.pattern_code ,"used_quantity" :['>',0]}):
+				items_list.append({
+								"item_code": k.sand_item_code,
+								"qty":(cd.total_weight* k.used_quantity) / self.total_moulding_sand_quantity,
+								"s_warehouse": k.source_warehouse,
+							})
+
+			for l in self.get("additional_consumable_details", filters = {"pattern_code": cd.pattern_code ,"used_quantity" :['>',0]}):
+				items_list.append({
+								"item_code": l.consumable_item_code,
+								"qty":(cd.total_weight* l.used_quantity) / self.total_additional_consumable_quantity,
+								"s_warehouse": l.source_warehouse,
+							})
+
+			for acd in self.get("additional_cost_details"):
+				additional_costs_list.append({
+												"expense_account":acd.expense_head_account,
+												"description": acd.discription,
+												"amount": (acd.amount* cd.total_weight) / self.total_casting_weight,
+											})
+
+			self.Create_Pouring_Stock_Entry(stock_entry_type ='Manufacture' , items_list = items_list, additional_costs_list = additional_costs_list)
+
+	def Create_Retain_Manufacturing_Stock_Entry(self):
+		self.Validate_Mandatory_Fields(['total_consumed_weight'])
+		for rd in self.get("retained_items_details" ,filters = {"quantity" :['>',0]}):
+			items_list = []
+
+			items_list.append({
+								"item_code": rd.retained_item_code,
+								"qty": rd.quantity ,
+								"t_warehouse": rd.target_warehouse,
+								'is_finished_item':True
+							},)
+
+			for i in self.get("charge_mix_details" , filters = {"used_quantity" :['>',0]}):
+				items_list.append({ 
+								"item_code": i.raw_item_code,
+								"qty":(rd.quantity * i.used_quantity) / self.total_consumed_weight,
+								"s_warehouse": i.source_warehouse,
+							})
+
+			for j in self.get("moulding_sand_details", filters = {"used_quantity" :['>',0]}):
+				items_list.append({
+								"item_code": j.sand_item_code,
+								"qty":(rd.quantity * j.used_quantity) / self.total_moulding_sand_quantity,
+								"s_warehouse": j.source_warehouse,
+							})
+
+			for k in self.get("additional_consumable_details", filters = {"used_quantity" :['>',0]}):
+				items_list.append({
+								"item_code": k.consumable_item_code,
+								"qty":(rd.quantity * k.used_quantity) / self.total_additional_consumable_quantity,
+								"s_warehouse": k.source_warehouse,
+							})
+
+			self.Create_Pouring_Stock_Entry(stock_entry_type ='Manufacture' , items_list = items_list)
+
+	def Create_Normal_Loss_Material_Issue_Stock_Entry(self):
+		self.Validate_Mandatory_Fields(['total_consumed_weight','total_normal_loss'])
+		items_list = []
+		for i in self.get("charge_mix_details" , filters = {"used_quantity" :['>',0]}):
+			quantity = (self.total_normal_loss * i.used_quantity) / self.total_consumed_weight
+			items_list.append({ 
+							"item_code": i.raw_item_code,
+							"qty":quantity,
+							"s_warehouse": i.source_warehouse,
+						})
+
+
+		self.Create_Pouring_Stock_Entry(stock_entry_type ='Material Issue' , items_list = items_list)
